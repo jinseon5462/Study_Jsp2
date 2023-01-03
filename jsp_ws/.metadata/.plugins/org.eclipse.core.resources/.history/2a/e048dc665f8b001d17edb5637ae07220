@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<button id="btn">실행</button>
+<hr>
+<table border="1">
+	<tr>
+		<th>Id</th>
+		<th>Pw</th>
+		<th>Name</th>
+		<th>Tel</th>
+	</tr>
+	<tbody>
+		
+	</tbody>
+</table>
+<script>
+	const btn = document.querySelector("#btn");
+	btn.addEventListener('click', loadDoc);
+	
+	function loadDoc() {
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {
+			let jsonStr = this.responseText;
+			alert(jsonStr);
+			let obj = JSON.parse(jsonStr);
+			
+			document.getElementById("id").value = obj.id;
+			document.getElementById("pw").value = obj.pw;
+			document.getElementById("name").value = obj.name;
+			document.getElementById("tel").value = obj.tel;
+		}
+		xhttp.open("GET", "text.txt");
+		xhttp.send();
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1498121784.index
+/ajax_crud/src/main/java
+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1981368535.index
+/test01/src/main/java
