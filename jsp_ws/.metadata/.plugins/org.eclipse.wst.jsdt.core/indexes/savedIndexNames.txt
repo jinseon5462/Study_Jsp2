@@ -1,5 +1,3 @@
 INDEX VERSION 1.4+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-1097680249.index
-2361904653.index
-24246954.index
 1498121784.index
+1097680249.index

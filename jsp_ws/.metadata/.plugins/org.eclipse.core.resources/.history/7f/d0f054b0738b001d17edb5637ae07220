@@ -33,6 +33,10 @@
 			alert(jsonStr);
 			let obj = JSON.parse(jsonStr);
 			
+			/* for(var i = 0; i < obj.length; i++){
+				tbody.innerHTML += "<tr><td>" + obj[i].id + "</td><td>" + obj.pw + "</td><td>" + obj.name + "</td><td>" + obj.tel + "</td></tr>";
+			} */
+			
 			for(let i = 0; obj.length; i++){
 				tbody.innerHTML += "<tr><td>" + obj[i].id + "</td><td>" + obj[i].pw + "</td><td>" + obj[i].name + "</td><td>" + obj[i].tel + "</td></tr>";
 			}
