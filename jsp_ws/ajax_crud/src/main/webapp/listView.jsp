@@ -23,6 +23,7 @@
 <hr>
 <script>
 	const btn = document.querySelector("#btn");
+	const tbody = document.querySelector("#tbody");
 	btn.addEventListener('click', loadDoc);
 	
 	function loadDoc() {

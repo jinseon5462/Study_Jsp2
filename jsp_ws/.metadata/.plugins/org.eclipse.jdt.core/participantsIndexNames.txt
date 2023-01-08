@@ -3,3 +3,9 @@ INDEX VERSION 1.131
 /ajax_crud/src/main/java
 /Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1981368535.index
 /test01/src/main/java
+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2776237781.index
+/ajax_ljs/src/main/java
+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1160501928.index
+/practice_ajax_crud/src/main/java
+/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/412622391.index
+/ajax_test/src/main/java

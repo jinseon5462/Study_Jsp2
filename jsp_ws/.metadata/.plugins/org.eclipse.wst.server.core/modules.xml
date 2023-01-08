@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <modules>
+  <module moduleId="org.eclipse.jst.jee.server:practice_ajax_crud" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ajax_test" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:test01" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:ajax_crud" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ajax_ljs" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>
