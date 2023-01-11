@@ -144,10 +144,11 @@
 <script>
 	getList();
 	const tbody = document.querySelector("#tbody");
+	
+	/* 회원등록 */
 	const btn = document.querySelector("#btn");
 	btn.addEventListener('click', reg);
 	
-	/* 회원등록 */
 	function reg(){
 		const xhttp = new XMLHttpRequest();
 		xhttp.onload = function(){
@@ -206,9 +207,10 @@
 		xhttp.send();
 	}
 	
-	tbody.addEventListener("click", del);
 	
 	/* 삭제 */
+	tbody.addEventListener("click", del);
+	
 	function del(e){
 		if(e.target.tagName != "BUTTON"){
 			return;

@@ -27,8 +27,6 @@ public class SearchServlet extends HttpServlet {
 		
 		JSONArray arr = new JSONArray(list);
 		PrintWriter out = response.getWriter();
-		
 		out.print(arr.toString());
 	}
-
 }
