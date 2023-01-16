@@ -9,23 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
-import common.FreeVO;
 import db.FreeDAO;
 
-@WebServlet("/showInfo.do")
-public class ShowInfoServlet extends HttpServlet {
+@WebServlet("/deleteInfo.do")
+public class DeleteFreeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+    
 	FreeDAO dao = new FreeDAO();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String id = request.getParameter("id");
-		FreeVO free = dao.selectOne(title, id);
-		JSONObject obj = new JSONObject(free);
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		int result = dao.removeInfo(bno);
+		
 		PrintWriter out = response.getWriter();
-		out.print(obj.toString());
+		out.print(result);
 	}
 }

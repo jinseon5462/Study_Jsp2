@@ -12,7 +12,7 @@ public class UserDAO {
 	public int checkId(String id) {
 		int result = 0;
 		Connection conn = DBcon.getConnection();
-		String query = "SELECT COUNT(id) as cnt FROM p01_usertable WHERE id = ?";
+		String query = "SELECT COUNT(id) as cnt FROM project01_user WHERE id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
@@ -28,7 +28,7 @@ public class UserDAO {
 	public int insert(UserVO user) {
 		int result = 0;
 		Connection conn = DBcon.getConnection();
-		String query = "INSERT INTO p01_usertable (id, pw, name, tel, univ, grade) VALUES (?, ?, ?, ?, ?, 'user')";
+		String query = "INSERT INTO project01_user (id, pw, name, tel, univ, grade) VALUES (?, ?, ?, ?, ?, 'user')";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, user.getId());
@@ -46,7 +46,7 @@ public class UserDAO {
 	public UserVO login(String id, String pw) {
 		UserVO user = null;
 		Connection conn = DBcon.getConnection();
-		String query = "SELECT * FROM p01_usertable WHERE id = ?";
+		String query = "SELECT * FROM project01_user WHERE id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);

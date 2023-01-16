@@ -34,9 +34,9 @@
 					<button id="profile_logout" onclick="location.href='logout.jsp'">로그아웃</button>
 				</c:if>
 				<c:if test="${sessionScope.user == null }">
-					<div id="profile_nickname">로그인 후 이용가능합니다.</div>
-					<button type="button" id="profile_login" onclick="login()">로그인</button>
-					<button type="button" id="profile_regist" onclick="location.href='regist.jsp'">회원가입</button>
+					<div id="profile_nickname">커뮤니티 이용을 위해<br><span style="color:red;">로그인</span>이 필요합니다!</div>
+					<button type="button" id="profile_login" onclick="login()">로그인</button><br>
+					<button type="button" id="profile_regist" onclick="location.href='regist.jsp'">에브리데이 회원가입</button>
 				</c:if>
 			</div>
 			<!-- 광고칸 -->
@@ -44,6 +44,7 @@
 			    <img src="images/ad1.png" alt="광고1">
 			    <img src="images/ad2.png" alt="광고2">
 			    <img src="images/ad3.png" alt="광고3">
+			    <img src="images/ad4.png" alt="광고4">
 			</div>
 		</aside>
 		<!-- 메인 -->
@@ -52,36 +53,26 @@
 			<div id="notice_board">
 			    <h3 class="title1"><a href="noticeboard.jsp">공지사항</a></h3>
 			    <ul class="notice_list">
-			        <!-- <li class="items">
-			            <a href="#">에브리데이에 오신걸 환영합니다!</a><span>01.10</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">다들 글쓰기 매너를 지켜주세요!</a><span>01.09</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">매너를 지키지않은 유저의 게시글은</a><span>01.08</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">무통보 삭제하도록 하겠습니다.</a><span>01.07</span>
-			        </li> -->
+			        <!-- 데이터 -->
 			    </ul>
 			</div>
 			<!-- 자유 게시판 -->
 			<div id="free_board">
 			    <h3 class="freeBoard_title"><a href="freeboard.jsp">자유 게시판</a></h3>
 			    <ul class="free_list">
-			        <!-- <li class="items">
-			            <a href="#">솔직히 이건좀 아니지않냐</a><span>01.10</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">사고와 표현 책 나눔</a><span>01.09</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">행복한 오카리나 드랍합니다~</a><span>01.08</span>
-			        </li>
-			        <li class="items">
-			            <a href="#">남자인데 발레수업 들어도되나요?</a><span>01.07</span>
-			        </li> -->
+			    	<!-- 데이터 -->
+			    </ul>
+			</div>
+			<div id="lectureEvaluation_board">
+			    <h3 class="lectureEvaluationBoard_title"><a href="#">강의평 게시판(오픈예정)</a></h3>
+			    <ul class="lectureEvaluation_list">
+			    	<!-- 데이터 -->
+			    </ul>
+			</div>
+			<div id="hot_board">
+			    <h3 class="hotBoard_title"><a href="#">🔥HOT 게시글🔥(추가예정)</a></h3>
+			    <ul class="hot_list">
+			    	<!-- 데이터 -->
 			    </ul>
 			</div>
 		</section>
@@ -107,12 +98,12 @@
 			let obj = JSON.parse(data);
 			for(let i = 0; i < obj.length; i++){
 				console.log(obj[i].title.length);
-				if(obj[i].title.length < 30){
+				if(obj[i].title.length < 20){
 					notice_list.innerHTML += 
 						"<li class='items'>" + obj[i].title + "<span>"
 						+ obj[i].regdate + "</span></li>";
 				}else{
-					let content = obj[i].title.substring(0, 30);
+					let content = obj[i].title.substring(0, 20);
 					notice_list.innerHTML += 
 						"<li class='items'>" + content + "..." + "<span>"
 						+ obj[i].regdate + "</span></li>";

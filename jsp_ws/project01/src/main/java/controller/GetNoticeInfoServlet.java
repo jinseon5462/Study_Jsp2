@@ -9,24 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.UserVO;
-import db.UserDAO;
+import org.json.JSONObject;
 
-@WebServlet("/reg.do")
-public class RegServlet extends HttpServlet {
+import common.NoticeVO;
+import db.NoticeDAO;
+
+@WebServlet("/getNoticeInfo.do")
+public class GetNoticeInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	UserDAO dao = new UserDAO();
+	NoticeDAO dao = new NoticeDAO();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserVO user = new UserVO();
-		user.setId(request.getParameter("id"));
-		user.setPw(request.getParameter("pw"));
-		user.setName(request.getParameter("name"));
-		user.setTel(request.getParameter("tel"));
-		user.setUniv(request.getParameter("univ"));
-		int result = dao.insert(user);
+		int num = Integer.parseInt(request.getParameter("num"));
+		NoticeVO notice = dao.getNoticeInfo(num);
 		PrintWriter out = response.getWriter();
-		out.print(result);
+		JSONObject obj = new JSONObject(notice);
+		out.print(obj.toString());
 	}
 }

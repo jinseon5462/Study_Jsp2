@@ -22,7 +22,7 @@ public class RegNoticeServlet extends HttpServlet {
 		NoticeVO notice = new NoticeVO();
 		notice.setTitle(request.getParameter("title"));
 		notice.setContent(request.getParameter("content"));
-		notice.setWriter(request.getParameter("writer"));
+		notice.setGrade(request.getParameter("grade"));
 		int result = dao.insert(notice);
 		PrintWriter out = response.getWriter();
 		out.print(result);

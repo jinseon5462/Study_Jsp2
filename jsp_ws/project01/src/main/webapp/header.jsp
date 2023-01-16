@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- <%@ include file="css/headerStyle.jsp" %> --%>
 <script src="jquery/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="favicon" href="images/favicon.ico">
 <div class="box">
 	<header>
 		<c:if test="${sessionScope.user != null }">
@@ -26,11 +26,15 @@
 				<li><a href="index.jsp">홈으로</a></li>
 				<li><a href="noticeboard.jsp">공지사항</a></li>
 				<li><a href="freeboard.jsp">자유 게시판</a></li>
+				<li><a href="#">강의평 게시판(오픈예정)</a></li>
+				<!-- <li><a href="#">장터 게시판</a></li> -->
 			</ul>
 		</nav>
 	</header>
 </div>
-
+<input type="hidden" id="user_id" value="${sessionScope.user.id }"><!-- 세션 아이디 -->
+<input type="hidden" id="user_univ" value="${sessionScope.user.univ }"><!-- 세션 대학 -->
+<input type="hidden" id="user_grade" value="${sessionScope.user.grade }"><!-- 세션 등급 -->
 <script>
 function login(){
 	let url = "login.jsp";
@@ -44,7 +48,6 @@ $(document).ready(function() {
     $("#gnb").append("<span></span>");
     $("#gnb ul li").on("mouseenter focusin", function() {
         var index = $(this).index();
-        console.log(index);
         $(this).find("a").addClass("on");
         $(this).siblings().find("a").removeClass("on");
         $("#gnb span").stop().animate({

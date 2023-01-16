@@ -1,19 +1,19 @@
 package common;
 
 import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 
-public class NoticeVO {
-	private int num;
-	private String title;
+public class ReplyVO {
+	private int rno;
+	private int bno;
 	private String content;
-	private String grade;
+	private String id;
+	private String univ;
 	private Date regdate;
 }

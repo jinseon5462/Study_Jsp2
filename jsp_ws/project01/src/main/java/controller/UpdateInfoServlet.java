@@ -14,18 +14,20 @@ import org.json.JSONObject;
 import common.FreeVO;
 import db.FreeDAO;
 
-@WebServlet("/showInfo.do")
-public class ShowInfoServlet extends HttpServlet {
+@WebServlet("/updateInfo.do")
+public class UpdateInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	FreeDAO dao = new FreeDAO();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		String title = request.getParameter("title");
-		String id = request.getParameter("id");
-		FreeVO free = dao.selectOne(title, id);
-		JSONObject obj = new JSONObject(free);
+		String content = request.getParameter("content");
+		
+		FreeVO free = dao.updateInfo(title, content, bno);
 		PrintWriter out = response.getWriter();
+		JSONObject obj = new JSONObject(free);
 		out.print(obj.toString());
 	}
 }

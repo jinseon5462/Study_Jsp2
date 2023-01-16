@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import common.UserVO;
+import db.UserDAO;
 
-import common.FreeVO;
-import db.FreeDAO;
-
-@WebServlet("/showInfo.do")
-public class ShowInfoServlet extends HttpServlet {
+@WebServlet("/reg.do")
+public class RegUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	FreeDAO dao = new FreeDAO();
+	UserDAO dao = new UserDAO();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String id = request.getParameter("id");
-		FreeVO free = dao.selectOne(title, id);
-		JSONObject obj = new JSONObject(free);
+		UserVO user = new UserVO();
+		user.setId(request.getParameter("id"));
+		user.setPw(request.getParameter("pw"));
+		user.setName(request.getParameter("name"));
+		user.setTel(request.getParameter("tel"));
+		user.setUniv(request.getParameter("univ"));
+		int result = dao.insert(user);
 		PrintWriter out = response.getWriter();
-		out.print(obj.toString());
+		out.print(result);
 	}
 }

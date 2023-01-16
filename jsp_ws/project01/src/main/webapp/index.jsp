@@ -11,9 +11,6 @@
 <meta charset="UTF-8">
 <title>에브리데이</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
 <body>
     <div class="container">
         <%@ include file="header.jsp" %>

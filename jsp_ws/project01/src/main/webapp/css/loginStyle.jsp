@@ -38,6 +38,7 @@
 	/* box-shadow: 20px 20px 20px black; */
 }
 .login_box input{
+	outline: none;
 	margin: 10px;
 }
 .form input{

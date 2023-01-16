@@ -26,10 +26,11 @@
 
 /* 푸터 */
 footer{
+	margin-top: 10px;
 	clear:both;
 	width: 1300px;
 	border-top: solid 1px gainsboro;
-	height: 230px;
+	height: 200px;
 }
 #bottom_menu ul{
     padding: 20px 0 0 100px;

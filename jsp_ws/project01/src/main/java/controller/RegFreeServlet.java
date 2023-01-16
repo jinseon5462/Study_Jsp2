@@ -21,7 +21,7 @@ public class RegFreeServlet extends HttpServlet {
 		FreeVO free = new FreeVO();
 		free.setTitle(request.getParameter("title"));
 		free.setContent(request.getParameter("content"));
-		free.setWriter(request.getParameter("writer"));
+		free.setId(request.getParameter("id"));
 		free.setUniv(request.getParameter("univ"));
 		int result = dao.insert(free);
 		PrintWriter out = response.getWriter();

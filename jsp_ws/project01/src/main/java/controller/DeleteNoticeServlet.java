@@ -9,23 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import db.NoticeDAO;
 
-import common.FreeVO;
-import db.FreeDAO;
-
-@WebServlet("/showInfo.do")
-public class ShowInfoServlet extends HttpServlet {
+@WebServlet("/deleteNotice.do")
+public class DeleteNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	FreeDAO dao = new FreeDAO();
-	
+	NoticeDAO dao = new NoticeDAO();
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String id = request.getParameter("id");
-		FreeVO free = dao.selectOne(title, id);
-		JSONObject obj = new JSONObject(free);
+		int num = Integer.parseInt(request.getParameter("num"));
+		int result = dao.removeNotice(num);
 		PrintWriter out = response.getWriter();
-		out.print(obj.toString());
+		out.print(result);
 	}
 }

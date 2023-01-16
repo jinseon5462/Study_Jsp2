@@ -33,7 +33,7 @@
 	border-radius: 10px;
 }
 .freeBoard_box{
-	height: 1400px;
+	height: 800px;
 	/* border: solid 1px red; */
 }
 
@@ -43,26 +43,35 @@
 	width: 270px;
 	display: block;
 }
+#sel{
+	outline:none;
+}
+#keyword{
+	outline:none;
+}
 
 /* 게시글 목록 박스 */
 #freeList_box{
-	margin: 30px 0 20px 0;
-	height: 1200px;
+	margin: 30px 0 0 0;
+	height: 650spx;
 }
 
 /* 게시글 한 박스 */
 #free_info_box{
-	height: 120px;
+	height: 130px;
 	border: solid 1px gainsboro;
 }
 
 /* 게시글 제목 */
 #free_info_box h4{
+	width: 300px;
 	padding: 10px 0 10px 0;
 	margin-left: 50px;
 	border-bottom: 1px solid gainsboro;
 	cursor: pointer;
 }
+
+/* 게시글 한박스 제목 */
 #free_info_box h4{
 	display: inline-block;
 }
@@ -77,31 +86,58 @@
 	padding-left: 50px;
 	border-top: 1px solid gray;
 }
+#gray_line{
+	display: flex;
+	padding-left: 50px;
+}
+#bottom_regdate_view_replyCount_box{
+	width: 1150px;
+	padding-left: 50px;
+	display: inline-block;
+	color: gray;
+}
+
+/* 조회수 */
+#viewCount{
+	float: right;
+	margin-right: 10px;
+}
+
+/* 댓글개수 */
+#replyCount{
+	width: 50px;
+	float:right;
+}
+
 
 /* 작성자 아이디 */
-#free_info_box > #writer{
+#free_info_box > #id{
 	padding-left: 50px;
 	color: gray;
-	display: flex;
 }
-
+#univ{
+	color: gray;
+}
 /* 아이디 옆 로고 */
 #univ_logo{
-	width: 20px;
-	height: 20px;
-	border: solid 1px gray;
+	width: 17px;
+	height: 17px;
+	border: 1px solid gainsboro;
+	margin-left: 1px;
 	border-radius: 10px;
 }
-
-#writer div{
-	width: 20px;
-	height: 20px;
+#id{
+	color: #7a7a7a;
+	/* width: 20px;
+	height: 20px; */
 }
+
 
 /* 작성일 */
 #regdate{
 	padding-left: 50px;
 	color: #7a7a7a;
+	float:left;
 }
 
 /* 글쓰기 버튼 */
@@ -112,14 +148,14 @@
 	cursor: pointer;
 }
 
-/* 팝업창 */
+/* 게시물 등록 팝업창 */
 .inner{
 	display: none;
 	position: fixed;
 	top: 30%;
 	left: 40%;
 	text-align: center;
-	height: 500px;
+	height: 550px;
 	width: 500px;
 	border: solid 2px black;
 	border-radius: 10px;
@@ -128,7 +164,10 @@
 	box-shadow: 10px 10px 10px black;
 }
 
-
+.textLengthWrap{
+	margin-left: 350px;
+	display: flex;
+}
 
 /* 정보박스 한칸 제목 */
 .inner > h2{
@@ -146,6 +185,7 @@
 	line-height: 30px;
 	margin-top: 30px;
 	margin-bottom: 10px;
+	outline: none;
 }
 
 /* 팝업 내용 */
@@ -156,6 +196,7 @@
 	padding: 20px;
 	margin-bottom: 10px;
 	border: solid 2px black;
+	outline: none;
 }
 
 /* 게시물 등록 버튼 */
@@ -178,7 +219,7 @@
 	height: 20px;
 	border: solid 1px black;
 	border-radius: 10px;
-	background-color: red;
+	background-color: #f56642;
 	cursor: pointer;
 }
 
@@ -200,10 +241,15 @@
 
 /* 다음이전버튼  */
 #before_btn, #after_btn{
-	display: inline-block;
+	margin-top: 10px;
 	width: 50px;
 	height: 30px;
-	cursor: pointer;
+	color: #f56042;
+	background: none;
+	border: 2px solid #f56042;
+	border-radius: 5px;
+	cursor: pointer;	
+	display: none;
 }
 #after_btn{
 	float: right;
@@ -223,10 +269,9 @@
 	text-algin: center;
 	width: 20px;
 	height: 20px;
-	background-color: red;
+	background-color: #f56642;
 	border-radius: 10px;
 	border: 1px solid black;
-	padding-left: 2.5px;
 	cursor: pointer;
 	float: right;
 }
@@ -234,8 +279,8 @@
 /* 상세보기 프로필 */
 #info_photo > img{
 	margin: 10px;
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 	border-radius: 10px;
 	border: solid 1px gainsboro;
 }
@@ -244,7 +289,7 @@
 }
 
 /* 상세보기 작성자 */
-#info_writer{
+#info_id{
 	margin-top: 10px;
 	font-weight: bold;
 	/* border: solid 1px orange; */
@@ -270,20 +315,83 @@
 	margin-left: 10px;
 	/* border: solid 1px blue; */
 }
+#infoView_replyCount{
+	display: flex;
+	padding-left: 1000px;	
+}
+
+#infoView_replyCount > #info_view{
+	margin-left: 90px;
+	margin-right: 10px;
+}
+
 /* 상세보기 조회수 */
 #info_view{
-	margin-left: 10px;
+	text-align: right;
 	/* border: solid 1px green; */
 }
 
+/* 게시글 수정, 삭제 */
+#updateOrDelete{
+	display: flex;
+	float: left;
+	margin-left: 10px;
+}
+#updt_btn{
+	cursor: pointer;
+	margin-right: 10px;
+	color: gray;
+}
+#del_btn{
+	cursor: pointer;
+	color: gray;
+}
 
-/* 댓글박스 */
+/* 댓글 전체 박스 */
 .reply_box{
 	width: 1300px;
 	height: 300px;
 	border: solid 1px gainsboro;
-	padding: 20px;
 }
+
+#reply_innerBox{
+	padding: 20px;
+	width: 1300px;
+	height: 100px;
+	background-color: #f0f0f0;
+	border-bottom: solid 1px gray;
+	
+}
+
+
+/* 상세보기 댓글 로고, 이름 박스*/
+#reply_top{
+	display:flex;
+	/* border: 1px solid red; */
+}
+
+/* 상세보기 댓글 로고 */
+#reply_logo{
+	border: 1px solid gainsboro;
+	border-radius: 5px;
+	margin-right: 5px;
+	width: 25px;
+	height: 25px;
+}
+
+/* 상세보기 댓글 아이디 */
+#reply_id{
+	font-weight: bold;
+	line-height: 25px;
+}
+#reply_regdate{
+	color: #a1a1a1;
+}
+
+#reply_content{
+	margin-top: 5px;	
+}
+
 #reply{
 	width: 1260px;
 	height: 40px;
@@ -292,10 +400,87 @@
 	border: 1px solid gainsboro;
 	background: #ebebeb;
 	float:left;
+	outline: none;
 }
 #pen{
 	cursor: pointer;
 	border-radius: 0 0 10px 0;
+}
+
+/*  공지수정 팝업창 */
+.update_inner{
+	display: none;
+	position: fixed;
+	top: 30%;
+	left: 40%;
+	text-align: center;
+	height: 550px;
+	width: 500px;
+	border: solid 2px black;
+	border-radius: 10px;
+	margin:0 auto;
+	background-color: #c9c9c9;
+	box-shadow: 10px 10px 10px black;
+}
+
+/* 박스 한칸 제목 */
+.update_inner > h2{
+	margin: 5px 0 5px 0;
+}
+
+/* 공지 입력 글자수 */
+.textLengthWrap{
+	margin-left: 350px;
+	display: flex;
+}
+/* 공지 수정 제목 */
+#free_update_title{
+	width: 400px;
+	height: 30px;
+	resize: none;
+	outline: none;
+	border-radius: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+/* 공지 수정 내용 */
+#free_update_content{
+	width: 400px;
+	height: 300px;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 10px;
+	border: solid 2px black;
+	resize: none;
+	outline: none;
+}
+
+/* 공지 수정 등록 버튼 */
+#free_update_btn{
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 10px;
+	background: gainsboro;
+	
+}
+#notice_update_btn:hover{
+	background-color:#4d4d4d;
+	color: white;
+}
+
+/* 닫기버튼 */
+#update_close_btn{
+	width: 20px;
+	height: 20px;
+	border: solid 1px black;
+	border-radius: 10px;
+	background-color: red;
+	cursor: pointer;
 }
 
 </style>

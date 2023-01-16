@@ -51,6 +51,7 @@ fieldset > legend{
 }
 
 fieldset input{
+	outline: none;
     text-align: center;
 }
 
@@ -64,6 +65,7 @@ fieldset input{
     border: solid 1.5px gray;
 }
 select{
+	outline: none;
     border: 2px solid gray;
     border-radius: 5px;
     width: 140px;
