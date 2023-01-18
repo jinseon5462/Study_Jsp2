@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.sidebar{
+	width: 190px;
+	height: 840px;
+	margin-top: 20px;
+	float:left;
+}
+.profile_box{
+	text-align: center;
+	width: 190px;
+	height: 300px;
+	border: 1px solid gainsboro;
+	border-radius: 15px;
+	background-color: rgb(242, 242, 242);
+}
+/* 프로필 이미지 */
+#profile_img{
+	margin: 40px 0 20px 0;
+	border: 1px solid gainsboro;
+	border-radius: 15px;
+}
+/* 프로필 닉네임 */
+#profile_nickname{
+	font-weight: bold;
+	margin: 5px 0;
+}
+/* 프로필 사용자 이름 */
+#profile_name{
+    color: rgb(166, 166, 166);
+    font-size: 15px;
+    margin: 5px 0 5px 0;
+}
+/* 프로필 사용자 아이디 */
+#profile_id{
+    color: rgb(166, 166, 166);
+    font-size: 15px;
+    margin: 5px 0 5px 0;
+}
+/* 프로필 로그아웃 버튼 */
+#profile_logout{
+    width: 70px;
+    height: 25px;
+    border: 1px solid gray;
+    background: none;
+    color: rgb(70, 70, 70);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+}
+/* 프로필 로그인버튼 */
+#profile_login{
+	width: 130px;
+	height: 30px;
+	cursor: pointer;
+	font-weight: bold;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+/* 프로필 로그아웃 */
+#profile_regist{
+	margin-top: 5px;
+	width: 130px;
+	height: 30px;
+	color: white;
+	border-radius: 5px;
+	background-color: #cf3a15;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+.ad_box{
+	margin-top: 10px;
+}
+.ad_box > img{
+	width: 190px;
+}

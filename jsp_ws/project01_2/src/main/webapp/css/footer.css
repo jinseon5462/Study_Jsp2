@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/* 푸터 */
+footer{
+	text-align: left;
+	margin: 0 auto;
+	margin-top: 10px;
+	clear:both;
+	width: 1300px;
+	border-top: solid 1px gainsboro;
+	height: 200px;
+}
+#bottom_menu ul{
+    padding: 20px 0 0 100px;
+}
+#bottom_menu li{
+    display: inline;
+    margin-right: 30px;
+}
+footer .items{
+    float: left;
+    margin: 0 0 0 100px;
+}
+footer h3{
+    color: black;
+}
+footer .items ul{
+    margin-top: 15px;
+}
+footer .items li{
+    margin-top: 5px;
+}
+footer .phone{
+    font-size: 15px;
+}
