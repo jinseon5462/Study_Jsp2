@@ -12,32 +12,32 @@
 	<div class="sidebar">
 		<div class="profile_box">
 			<c:if test="${sessionScope.user.univ == null }">
-				<img id="profile_img" src="images/profile_img.png">
+				<img id="profile_img" src="images/profile_img.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '부산대' }">
-				<img id="profile_img" src="images/busan.png">
+				<img id="profile_img" src="images/busan.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '부경대' }">
-				<img id="profile_img" src="images/pukyeon.png">
+				<img id="profile_img" src="images/pukyeon.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '동아대' }">
-				<img id="profile_img" src="images/donga.png">
+				<img id="profile_img" src="images/donga.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '동의대' }">
-				<img id="profile_img" src="images/donge.png">
+				<img id="profile_img" src="images/donge.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '경성대' }">
-				<img id="profile_img" src="images/kyungsung.png">
+				<img id="profile_img" src="images/kyungsung.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user == null }">
 				<div id="profile_nickname">커뮤니티 이용을 위해<br><span style="color:red;">로그인</span>이 필요합니다!</div>
-				<button type="button" id="profile_login" onclick="login()">로그인</button><br>
-				<button type="button" id="profile_regist" onclick="location.href='regist.jsp'">회원가입</button>
+				<button type="button" id="profile_login" onclick="location.href='login.jsp'">로그인</button><br>
+				<button type="button" id="profile_regist" onclick="location.href='signUp.jsp'">회원가입</button>
 			</c:if>
 			<c:if test="${sessionScope.user != null  }">
-				<div id="profile_nickname">김명팔</div>
-				<div id="profile_name">이진선</div>
-				<div id="profile_id">lee1594</div>
+				<div id="profile_nickname">${sessionScope.user.grade }</div>
+				<div id="profile_name">${sessionScope.user.name }</div>
+				<div id="profile_id">${sessionScope.user.id }</div>
 				<button id="profile_logout" onclick="location.href='logout.jsp'">로그아웃</button>
 			</c:if>
 		</div>

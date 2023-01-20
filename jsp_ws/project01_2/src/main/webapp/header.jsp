@@ -15,10 +15,10 @@
 		<img src="images/project_logo02.png" id="main_logo" onclick="location.href='index.jsp'">
 		<nav id="navbar">
 			<ul>
-			    <li><a href="#">홈으로</a></li>
-			    <li><a href="#">시간표</a></li>
-			    <li><a href="#">자유게시판</a></li>
-			    <li><a href="#">인기게시판</a></li>
+			    <li><a href="index.jsp">홈으로</a></li>
+			    <li><a href="timetable.jsp">시간표</a></li>
+			    <li><a href="free.jsp">자유게시판</a></li>
+			    <li><a href="notice.jsp">인기게시판</a></li>
 			</ul>
 		</nav>
 		<c:if test="${sessionScope.user == null }">
@@ -29,10 +29,13 @@
 		</c:if>
 		<c:if test="${sessionScope.user != null }">
 			<div class="buttons">
-			    <button type="button" id="top_logout_btn" onclick="#">로그아웃</button>
+			    <button type="button" id="top_logout_btn" onclick="location.href='logout.jsp'">로그아웃</button>
 			    <button type="button" id="top_updateInfo_btn" onclick="#">정보수정</button>
 			</div>
 		</c:if>
 	</div>
+	<input type="hidden" id="user_id" value="${sessionScope.user.id }"><!-- 세션 아이디 -->
+	<input type="hidden" id="user_univ" value="${sessionScope.user.univ }"><!-- 세션 대학 -->
+	<input type="hidden" id="user_grade" value="${sessionScope.user.grade }"><!-- 세션 등급 -->
 </body>
 </html>

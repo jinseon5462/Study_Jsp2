@@ -6,64 +6,54 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <style>
-	.box{
-		width: 1300px;
-		height: 600px;
-		border: solid 1px red;
-		margin: 0 auto;
-	}
-	.login_box{
-		margin: 0 auto;
-		margin-top: 40px;
-		width: 500px;
-		height: 500px;
-		border-radius: 20px;
-		box-shadow: 20px 20px 20px gray;
-		border: solid 3px #ff4000;
-	}
-	form{
-		margin-top: 50px;
-	}
-	fieldset{
-		text-align: center;
-		margin: 0 auto;
-		width: 300px;
-		height: 300px;
-		border-radius: 10px;
-		border: solid 3px gainsboro;
-	}
-	input[type="text"],
-	input[type="password"]
-	{
-		text-align: center;
-		height: 30px;
-		outline: none;
-		border: solid 2px gainsboro;
-		border-radius: 10px;
-	}
-	
-	input[type="text"]:hover,
-	input[type="password"]:hover
-	{	
-		border: solid 2px orange; 
-	}
-	
-	
 </style>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class="box">
-		<div class="login_box">
-			<form name="frm" id="signup">
+	<div class="login_box">
+		<form name="frm" id="login">
 			<fieldset>
-				<legend>회원가입</legend>
-				<input type="text" name="id">
-				<input type="password" name="pw">
+				<legend>Login</legend>
+				<div class="login_text">
+					<input type="text" name="id" id="id" placeholder="ID"><br>
+					<input type="password" name="pw" id="pw" placeholder="Password"><br>
+				</div>
+				<input type="reset" name="reset" id="reset_btn" value="초기화">
+				<input type="button" name="reg" id="login_btn" value="로그인">
 			</fieldset>
-			</form>
-		</div>
+		</form>
 	</div>
 	<%@ include file="footer.jsp" %>
+<script>
+	$("#login_btn").on("click", function(){
+		if($("#id").val() == ""){
+			alert("아이디를 입력하세요.");
+			$("#id").focus();
+			return;
+		}else if($("#pw").val() == ""){
+			alert("비밀번호를 입력하세요.");
+			$("#pw").focus();
+			return;
+		}else{
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function(){
+				let data = this.responseText;
+				if(data == "0"){
+					alert("아이디 또는 비밀번호를 확인해주세요.");
+				}else{
+					alert("로그인 성공");
+					location.href = "index.jsp";
+				}
+			}
+			let id = $("#id").val();
+			let pw = $("#pw").val();
+			xhttp.open("POST", "login.do", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("id=" + id + "&pw=" + pw);
+		}
+	});
+</script>
 </body>
 </html>

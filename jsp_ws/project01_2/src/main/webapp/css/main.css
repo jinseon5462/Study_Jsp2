@@ -2,14 +2,14 @@
 
 .main{
 	width: 1100px;
-	height: 840px;
+	height: 950px;
     margin-top: 20px;
     float: right;
 }
 /* 메인 공지사항 섹션 */
 #notice_board{
     width: 540px;
-    height: 400px;
+    height: 450px;
     padding: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -40,7 +40,7 @@
 /* 메인 자유게시판 섹션 */
 #free_board{
     width: 540px;
-    height: 400px;
+    height: 450px;
     padding: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -67,10 +67,10 @@
     float: right;
     margin-right: 10px;
 }
-/* 강의평가 리스트 */
-#lectureEvaluation_board{
+/* 시간표 구역 */
+#timeTable{
 	width: 540px;
-    height: 400px;
+    height: 450px;
     padding: 10px;
     margin: 10px 5px 0 5px;
     border: 1px solid gainsboro;
@@ -78,14 +78,14 @@
     clear: both;
     float: left;
 }
-#lectureEvaluation_board .lectureEvaluationBoard_title{
+#timeTable > .timeTable_title{
     border-bottom: 1px solid black;
     padding-bottom: 5px;
 }
 /* 인기게시글 리스트 */
 #hot_board{
 	width: 540px;
-    height: 400px;
+    height: 450px;
     padding: 10px;
     margin: 10px 5px 0 5px;
     border: 1px solid gainsboro;
@@ -95,4 +95,7 @@
 #hot_board .hotBoard_title{
     border-bottom: 1px solid black;
     padding-bottom: 5px;
+}
+.items:last-child{
+	border:none;
 }
