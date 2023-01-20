@@ -7,7 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	ArrayList<CartDTO> cartList = (ArrayList<CartDTO>)request.getAttribute("list");
-	pageContext.setAttribute("cartList", cartList);
 %>
 <!DOCTYPE html>
 <html>

@@ -67,7 +67,7 @@
 		for(let i = 0; i < chks.length; i++){
 			chks[i].checked = all.checked;
 		}
-	};
+	}
 	
 	// 장바구니 담기(개별)
 	const tbody = document.querySelector("#tbody");
@@ -78,6 +78,7 @@
 		let target;
 		if(e.target.tagName == "INPUT"){
 			let target = e.target.parentElement.parentElement.firstElementChild.nextElementSibling.innerText;
+			alert(target);
 		}else if(e.target.tagName == "BUTTON"){
 			let checkbox = document.querySelector("#chk");
 			let is_checked = checkbox.checked;
