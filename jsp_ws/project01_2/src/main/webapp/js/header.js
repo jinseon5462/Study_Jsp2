@@ -3,6 +3,8 @@
  */
 
 // 상단 네비게이션바 효과
+/* 
+
 $(document).ready(function(){
 	let w = $("#navbar ul li").width();
 	$("#navbar").append("<span></span>");
@@ -17,3 +19,4 @@ $(document).ready(function(){
     });
     $("#navbar ul li:eq(0)").trigger("mouseenter");
 });
+ */

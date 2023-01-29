@@ -1,0 +1,294 @@
+@charset "UTF-8";
+
+.free_container{
+	width: 1300px;
+	height: 950px;
+	/* border: 1px solid red; */
+	margin: 0 auto;	
+	display: flex;
+	margin-top: 20px;
+}
+
+#freeboard_wrap{
+	/* border: solid 1px blue; */
+	width: 900px;
+	height: 950px;
+	margin-left: 30px;
+}
+
+/* 사이드보드 */
+#sideboard_wrap{
+	border: solid 1px green;
+	width: 300px;
+	height: 600px;
+	margin-left: 30px;
+}
+
+/* 상단 대제목 */
+#freeboard_title{
+	width: 900px;
+	padding: 10px;
+	border: solid 1px gainsboro;
+}
+
+/* 글쓰기 박스 */
+#write_line_off{
+	display: flex;
+	cursor: pointer;
+	height: 50px;
+	margin: 5px 0;
+	/* display: block; */
+}
+
+#write_line_on{
+	margin-top: 5px;
+	display: none;
+}
+
+/* 글쓰기 */
+#writeArticleButton{
+	width: 900px;
+	height: 50px;
+	color: #adadad;
+	border-top: solid 2px #adadad;
+	border-left: solid 2px #adadad;
+	border-bottom: solid 2px #adadad;
+	padding: 10px;
+	background-color: #f5f5f5;
+	line-height: 30px;
+}
+/* 글쓰기 이미지 */
+#write_pen > img{
+	border-top: solid 2px #adadad;
+	border-right: solid 2px #adadad;
+	border-bottom: solid 2px #adadad;
+	background-color: #f5f5f5;
+	width: 50px;
+	height: 50px;
+}
+
+/* 게시글 메인박스 */
+#freeboard_main{
+	/* border-top: solid 1px gainsboro; */
+	/* border-right: solid 1px gainsboro;
+	border-left: solid 1px gainsboro; */
+}
+
+/* 포스트 한칸 */
+.post{
+	padding: 10px;
+	cursor: pointer;
+	border: solid 0.5px gainsboro;
+}
+.post:hover{
+	background-color: #f5f5f5;
+}
+#bno{
+	display: none;
+}
+/* 작성글 제목 */
+.post_title{
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+/* 작성글 내용 */
+.post_content{
+	color: #adadad;
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+/* 작성일, 아이디 */
+.post_bottom{
+	display: flex;
+	font-size: 12px;
+}
+/* 작성일 */
+#date{
+	color: #adadad;
+	margin-right: 5px;
+}
+.date_writer{
+	float: left;
+	display: flex;
+}
+/* 게시글 조회수, 댓글 박스 */
+.view_comment{
+	margin-left: auto;
+	display: flex;
+}
+
+/* 게시글 댓글, 조회수 */
+.view_comment > #view, #comment{
+	margin-right: 5px;
+}
+
+/* 게시글 작성 */
+#write_post_title{
+	width: 900px;
+	height: 50px;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-top: solid 1px gainsboro;
+	border-left: solid 1px gainsboro;
+	font-weight: bold;
+}
+#write_post_content{
+	width: 900px;
+	height: 300px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border: solid 1px gainsboro;
+	resize: none;
+}
+#write_post_content::placeholder {
+  font-size: 11px;
+}
+
+#write_input_wrap{
+	display: flex;
+}
+
+#write_input_wrap > img{
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+/* 게시글 상세보기 */
+#info_box{
+	height: 300px;
+	border: solid 1px gainsboro;
+	margin-top: 5px;
+	padding: 10px;
+}
+#info_header{
+	/* border: solid 1px blue; */
+	display: flex;
+}
+#info_header > img{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+#info_id{
+	margin-top: 5px;
+	font-weight: bold;
+}
+#info_regdate{
+	margin-top: 5px;
+	color: #adadad;
+	font-size: 13px;
+}
+.updt_del{
+	display: flex;
+	margin-left: auto;
+}
+
+.update{
+	cursor: pointer;
+	font-size: 12px;
+	margin-right: 10px;
+	margin-top: 10px;
+	color: #adadad;
+	display: none;
+}
+.del{
+	font-size: 12px;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-top: 10px;
+	color: #adadad;
+	display: none;
+}
+#info_box > h2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#info_box > p{
+	height: 150px;
+}
+.comment_thumb{
+	display: flex;
+}
+.comment_thumb > li{
+	margin-right: 5px;
+}
+#reply_box{
+	padding: 10px;
+	/* height: 100px; */
+	border: solid 1px gainsboro;
+	
+}
+#reply_header{
+	display: flex;
+	height: 20px;
+	/* border: solid 1px blue; */
+}
+#reply_header > img{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+#reply_header > #reply_id{
+	line-height: 22px;
+	font-size: 15px;
+	font-weight: bold;
+}
+#reply_content{
+	margin: 10px 0;
+}
+#reply_regdate{
+	color: #adadad;
+	font-size: 13px;
+}
+#reg_reply_wrap{
+	display:flex;
+}
+#replyContent{
+	width: 860px;
+	height: 40px;
+	border: none;
+	border: 1px solid gainsboro;
+	padding: 10px;
+	background-color: #f5f5f5;
+	outline: none;
+}
+
+#write_reply_pen{
+	cursor: pointer;
+}
+
+/* 게시글 수정 */
+#update_post_box{
+	margin-top: 5px;
+}
+#update_input_wrap{
+	display: flex;
+}
+#update_post_title{
+	width: 900px;
+	outline:none;
+	height: 40px;
+	border: none;
+	padding: 10px;
+	border-top: solid 1px gainsboro;
+	border-left: solid 1px gainsboro;
+}
+
+#update_post_content{
+	width: 900px;
+	height: 300px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border: solid 1px gainsboro;
+	resize: none;
+}
+
+#update_btn{
+	cursor: pointer;
+}

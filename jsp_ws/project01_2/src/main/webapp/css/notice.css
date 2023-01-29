@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+.notice_container{
+	width: 1300px;
+	height: 1000px;
+	margin: 0 auto;
+	/* border: solid 1px red; */
+	display: flex;
+	margin-top: 20px;
+}
+#notice_wrap{
+	width: 900px;
+	height: 950px;
+	margin-left: 30px;
+	/* border: solid 1px blue; */
+}
+
+#noticeboard_main{
+	margin-top: 5px;
+}
+
+#num{
+	display:none;	
+}
+#sideboard_wrap{
+	border: solid 1px green;
+	width: 300px;
+	height: 600px;
+	margin-left: 30px;
+}
+#notice_title{
+	width: 900px;
+	border: 1px solid gainsboro;
+	padding: 10px;
+}
+#write_line_off{
+	display: flex;
+	cursor: pointer;
+	height: 50px;
+	margin: 5px 0;
+}
+#write_line_on{
+	margin-top: 5px;
+	display: none;
+}
+#open_notice_btn{
+	width: 900px;
+	height: 50px;
+	color: #adadad;
+	border-top: solid 2px #adadad;
+	border-left: solid 2px #adadad;
+	border-bottom: solid 2px #adadad;
+	padding: 10px;
+	background-color: #f5f5f5;
+	line-height: 30px;
+}
+#write_pen > img{
+	border-top: solid 2px #adadad;
+	border-right: solid 2px #adadad;
+	border-bottom: solid 2px #adadad;
+	background-color: #f5f5f5;
+	width: 50px;
+	height: 50px;
+}
+#write_notice_title{
+	width: 900px;
+	height: 50px;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-top: solid 1px gainsboro;
+	border-left: solid 1px gainsboro;
+	font-weight: bold;
+}
+#write_notice_content{
+	width: 900px;
+	height: 300px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border: solid 1px gainsboro;
+	resize: none;
+}
+#write_input_wrap{
+	display: flex;
+}
+#write_input_wrap > img{
+	width: 50px;
+	height: 50px;
+	cursor:pointer;
+}
+/* 공지목록 박스 */
+#notice_info_box{
+	
+	border: solid 0.5px gainsboro;
+	padding: 10px;
+	cursor:pointer;
+	
+}
+#notice_info_box:hover{
+	background-color: #f5f5f5;
+}
+
+#noticeTitle{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#noticeContent{
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+#regdate_grade_wrap{
+	display: flex;
+	font-size: 13px;
+	/* border: solid 1px green; */
+}
+#regdate{
+	color: #adadad;
+	margin-right: 10px;
+}
+/* 공지 상세보기 */
+#notice_box{
+	height: 300px;
+	border: solid 1px gainsboro;
+	margin-top: 5px;
+	padding: 10px;
+}
+#notice_header{
+	display: flex;
+}
+#notice_header > img{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	margin-right: 10px;
+	border: 1px solid gainsboro;
+}
+#notice_grade{
+	margin-top: 5px;
+	font-weight: bold;
+}
+#notice_regdate{
+	margin-top: 5px;
+	color: #adadad;
+	font-size: 13px;
+}
+.updt_del{
+	display: flex;
+	margin-left: auto;
+}
+.update{
+	cursor: pointer;
+	font-size: 12px;
+	margin-right: 10px;
+	margin-top: 10px;
+	color: #adadad;
+	display: none;
+}
+.del{
+	font-size: 12px;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-top: 10px;
+	color: #adadad;
+	display: none;
+}
+#notice_box > h2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#notice_box > p{
+	height: 150px;
+}
+/* 공지 수정박스 */
+#update_notice_box{
+	margin-top: 5px;
+}
+
+#update_input_wrap{
+	display: flex;
+}
+
+#update_notice_title{
+	width: 900px;
+	outline:none;
+	height: 40px;
+	border: none;
+	padding: 10px;
+	border-top: solid 1px gainsboro;
+	border-left: solid 1px gainsboro;
+}
+#update_notice_content{
+	width: 900px;
+	height: 300px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border: solid 1px gainsboro;
+	resize: none;
+}
+
+#update_btn{
+	cursor: pointer;
+}
+
+
+
+

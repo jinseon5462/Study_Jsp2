@@ -27,7 +27,7 @@ public class NoticeDAO {
 	public ArrayList<NoticeVO> getNoticeList(){
 		ArrayList<NoticeVO> list = new ArrayList<>();
 		Connection conn = DBcon.getConnection();
-		String query = "SELECT * FROM project01_notice ORDER BY regdate DESC LIMIT 0, 5";
+		String query = "SELECT * FROM project01_notice ORDER BY regdate DESC LIMIT 0, 10";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
@@ -90,7 +90,6 @@ public class NoticeDAO {
 		String query = "UPDATE project01_notice SET title = ?, content = ?, regdate = now() WHERE num = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			System.out.println(1);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, num);

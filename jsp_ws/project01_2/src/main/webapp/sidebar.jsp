@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="css/sidebar.css?v1">
 </head>
 <body>
 	<div class="sidebar">
@@ -18,7 +18,7 @@
 				<img id="profile_img" src="images/busan.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '부경대' }">
-				<img id="profile_img" src="images/pukyeon.png" style="width: 100px; height: 100px;">
+				<img id="profile_img" src="images/pukyeong.png" style="width: 100px; height: 100px;">
 			</c:if>
 			<c:if test="${sessionScope.user.univ eq '동아대' }">
 				<img id="profile_img" src="images/donga.png" style="width: 100px; height: 100px;">
@@ -43,10 +43,10 @@
 		</div>
 		<!-- 광고구역 -->
 		<div class="ad_box">
-			<img src="images/ad1.png">
-			<img src="images/ad2.png">
-			<img src="images/ad3.png">
-			<img src="images/ad4.png">
+			<img src="images/ad4.png" onclick="location.href='https://www.univstore.com/event/20230109_apple_bts_promotion?utm_source=everytime&utm_medium=homecard&utm_campaign=20230116_apple_bts_promotion'">
+			<img src="images/ad5.png" onclick="location.href='https://everytime.tripstore.kr/promotion/230112_promotion_everytime'">
+			<img src="images/ad6.jpeg" onclick="location.href='https://www.hackers.co.kr/?mod=speaking_free_test&keywd=app_everytime_mo_heng_speaking_freetest&logger_kw=app_everytime_mo_heng_speaking_freetest&_C_=366887&utm_source=app_ad_everytime_mo&utm_medium=banner&utm_campaign=heng_speaking_freetest'">
+			<img src="images/ad8.png" onclick="location.href='http://www.adongbokji.or.kr/adong/html/news_view.asp?num=60690327284193&page=1&keyword1=&keyword2=&cate=4&PB=%B0%F8%C1%F6%BB%E7%C7%D7&mode='">
 		</div>
 	</div>
 </body>

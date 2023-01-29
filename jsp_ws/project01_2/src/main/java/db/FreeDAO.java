@@ -31,12 +31,13 @@ public class FreeDAO {
 	}
 	
 	// 자유게시판 글목록
-	public ArrayList<FreeVO> getFreeList(){
+	public ArrayList<FreeVO> getFreeList(String univ){
 		ArrayList<FreeVO> list = new ArrayList<>();
 		Connection conn = DBcon.getConnection();
 		try {
-			String query = "SELECT * FROM project01_free ORDER BY regdate DESC LIMIT 0, 5";
+			String query = "SELECT * FROM project01_free WHERE univ = ? ORDER BY regdate DESC LIMIT 0, 10";
 			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, univ);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				FreeVO free = new FreeVO();
@@ -75,11 +76,55 @@ public class FreeDAO {
 		return list;
 	}
 	
-	public ArrayList<FreeVO> getMainFreeList(){
+	public ArrayList<FreeVO> getMainFreeList(String univ){
 		ArrayList<FreeVO> list = new ArrayList<>();
 		Connection conn = DBcon.getConnection();
 		try {
-			String query = "SELECT * FROM project01_free ORDER BY regdate DESC LIMIT 0, 10";
+			String query = "SELECT * FROM project01_free WHERE univ = ? ORDER BY regdate DESC LIMIT 0, 10";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, univ);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				FreeVO free = new FreeVO();
+				free.setBno(rs.getInt("bno"));
+				free.setTitle(rs.getString("title"));
+				free.setContent(rs.getString("content"));
+				free.setId(rs.getString("id"));
+				free.setUniv(rs.getString("univ"));
+				String regdate = rs.getString("regdate").substring(0, 16);
+				free.setRegdate(regdate);
+				free.setView(rs.getInt("view"));
+				
+				// 해당 게시물의 댓글 ArrayList 가져오기
+				String query2 = "SELECT * FROM project01_reply WHERE bno = ? ORDER BY regdate DESC";
+				pstmt = conn.prepareStatement(query2);
+				pstmt.setInt(1, free.getBno());
+				ArrayList<ReplyVO> replyList = new ArrayList<>();
+				ResultSet rs2 = pstmt.executeQuery();
+				while(rs2.next()) {
+					ReplyVO reply = new ReplyVO();
+					reply.setRno(rs2.getInt("rno"));
+					reply.setBno(rs.getInt("bno"));
+					reply.setContent(rs2.getString("content"));
+					reply.setId(rs2.getString("id"));
+					reply.setUniv(rs2.getString("univ"));
+					String regdate2 = rs.getString("regdate").substring(0, 16);
+					reply.setRegdate(regdate2);
+					replyList.add(reply);
+				}
+				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
+				list.add(free);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public ArrayList<FreeVO> getNotLoginMainFreeList(){
+		ArrayList<FreeVO> list = new ArrayList<>();
+		Connection conn = DBcon.getConnection();
+		try {
+			String query = "SELECT * FROM project01_free  ORDER BY regdate DESC LIMIT 0, 10";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -175,20 +220,18 @@ public class FreeDAO {
 	}
 	
 	// 게시글 상세 조회
-	public FreeVO selectOne(String title, String id) {
+	public FreeVO getInfo(int bno) {
 		FreeVO free = new FreeVO();
 		Connection conn = DBcon.getConnection();
 		try {
-			String query1 = "UPDATE project01_free SET view = view + 1 WHERE title = ? AND id = ?";
+			String query1 = "UPDATE project01_free SET view = view + 1 WHERE bno = ?";
 			PreparedStatement pstmt = conn.prepareStatement(query1);
-			pstmt.setString(1, title);
-			pstmt.setString(2, id);
+			pstmt.setInt(1, bno);
 			pstmt.executeUpdate();
 			
-			String query2 = "SELECT * FROM project01_free WHERE title = ? AND id = ?";
+			String query2 = "SELECT * FROM project01_free WHERE bno = ?";
 			pstmt = conn.prepareStatement(query2);
-			pstmt.setString(1, title);
-			pstmt.setString(2, id);
+			pstmt.setInt(1, bno);
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -230,7 +273,7 @@ public class FreeDAO {
 	public FreeVO updateInfo(String title, String content, int bno) {
 		FreeVO free = null;
 		Connection conn = DBcon.getConnection();
-		String query = "UPDATE project01_free SET title = ?, content = ?, regdate = now() WHERE bno = ?";
+		String query = "UPDATE project01_free SET title = ?, content = ? WHERE bno = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, title);

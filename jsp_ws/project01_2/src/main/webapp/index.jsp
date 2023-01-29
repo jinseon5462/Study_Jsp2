@@ -13,10 +13,11 @@
 		width: 1300px;
 	}
 </style>
-<body>
+<body id="main">
 	<%@ include file="header.jsp" %>
 	<div class="section">
 		<%@ include file="sidebar.jsp" %>
+		
 		<%@ include file="main.jsp" %>
 	</div>
 	<%@ include file="footer.jsp" %>

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+fieldset{
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	width: 400px;
+	height: 500px;
+	border: solid 3px gray;
+	border-radius: 15px;
+	box-shadow: 10px 10px 10px black;
+}
+.wrap{
+	display: flex;
+}
+legend{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+.updateInfo_text{
+	margin: 40px 0 0 110px;
+}
+#idCheck_btn{
+	width: 60px;
+	height: 30px;
+	margin-top: 80px;
+	margin-left: 10px;
+	cursor: pointer;
+	background: none;
+	border-radius: 10px;
+	border: solid 3px gray;
+}
+#idCheck_btn:hover{
+	border: 3px solid #ff4000;
+}
+input[type="text"]{
+	-webkit-box-shadow: 0 0 0 1000px white inset;
+	font-size: 15px;
+	margin-top: 30px;
+	width: 170px;
+	border: none;
+	outline: none;
+	border-bottom: solid 3px gray;
+	text-align: center;
+}
+input[type="text"]:focus{
+	border-bottom: 3px solid #ff4000;
+}
+input[type="text"]:hover{
+	border-bottom: 3px solid #ff4000;
+}
+
+
+#updateUserInfo_btn{
+	margin-top: 30px;
+	width: 85px;
+	height: 30px;
+	background: none;
+	cursor: pointer;
+	border: solid 3px gray;
+	border-radius: 10px;
+}
+#updateUserInfo_btn:hover{
+	border: 3px solid #ff4000;
+}
+
+#return_btn{
+	margin-top: 30px;
+	width: 85px;
+	height: 30px;
+	background: none;
+	cursor: pointer;
+	border: solid 3px gray;
+	border-radius: 10px;
+}
+#return_btn:hover{
+	border: 3px solid #ff4000;
+}

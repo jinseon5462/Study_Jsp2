@@ -17,8 +17,8 @@
 			<fieldset>
 				<legend>Login</legend>
 				<div class="login_text">
-					<input type="text" name="id" id="id" placeholder="ID"><br>
-					<input type="password" name="pw" id="pw" placeholder="Password"><br>
+					<input type="text" name="id" id="id" maxlength="30" placeholder="ID"><br>
+					<input type="password" name="pw" id="pw" maxlength="30" placeholder="Password"><br>
 				</div>
 				<input type="reset" name="reset" id="reset_btn" value="초기화">
 				<input type="button" name="reg" id="login_btn" value="로그인">

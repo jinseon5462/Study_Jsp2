@@ -12,21 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 
-import db.FreeDAO;
-import vo.FreeVO;
+import db.NoticeDAO;
+import vo.NoticeVO;
 
-@WebServlet("/getMainFreeList.do")
-public class GetMainFreeListServlet extends HttpServlet {
+@WebServlet("/getNoticeList.do")
+public class GetNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	FreeDAO dao = new FreeDAO();
+	NoticeDAO dao = new NoticeDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		String univ = request.getParameter("univ");
-		ArrayList<FreeVO> list = dao.getMainFreeList(univ);
+		ArrayList<NoticeVO> list = dao.getNoticeList();
 		JSONArray arr = new JSONArray(list);
-		
 		PrintWriter out = response.getWriter();
-		out.print(arr);
+		out.print(arr.toString());
 	}
 
 }

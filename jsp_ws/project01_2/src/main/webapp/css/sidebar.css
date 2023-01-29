@@ -74,5 +74,6 @@
 	margin-top: 10px;
 }
 .ad_box > img{
+	cursor: pointer;
 	width: 190px;
 }

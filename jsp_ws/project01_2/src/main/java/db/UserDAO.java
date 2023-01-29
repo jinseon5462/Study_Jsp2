@@ -67,4 +67,36 @@ public class UserDAO {
 		}
 		return user;
 	}
+	public UserVO updateUserInfo(UserVO user) {
+		UserVO updateUser = null;
+		Connection conn = DBcon.getConnection();
+		String query = "UPDATE project01_user SET pw = ?, name = ?, tel = ? WHERE id = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, user.getPw());
+			pstmt.setString(2, user.getName());
+			pstmt.setString(3, user.getTel());
+			pstmt.setString(4, user.getId());
+			int result = pstmt.executeUpdate();
+			if(result == 1) {
+				// 수정 성공시 세션에 저장할 수정된 정보 가져오기
+				String query2 = "SELECT * FROM project01_user WHERE id = ?";
+				pstmt = conn.prepareStatement(query2);
+				pstmt.setString(1, user.getId());
+				ResultSet rs = pstmt.executeQuery();
+				if(rs.next()) {
+					updateUser = new UserVO();
+					updateUser.setId(rs.getString("id"));
+					updateUser.setPw(rs.getString("pw"));
+					updateUser.setName(rs.getString("name"));
+					updateUser.setTel(rs.getString("tel"));
+					updateUser.setUniv(rs.getString("univ"));
+					updateUser.setGrade(rs.getString("grade"));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return updateUser;
+	}
 }

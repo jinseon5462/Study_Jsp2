@@ -17,10 +17,10 @@
 					<div class="signUp_text">
 						<div id="checkIdResult">&nbsp;</div>
 						<input type="hidden" id="result" name="result" value="">
-						<input type="text" name="id" id="id" placeholder="ID"><br>
-						<input type="password" name="pw" id="pw" placeholder="Password"><br>
-						<input type="text" name="name" id="name" placeholder="Name"><br>
-						<input type="text" name="tel" id="tel" placeholder="Tel"><br>
+						<input type="text" name="id" id="id" maxlength="30" placeholder="ID"><br>
+						<input type="password" name="pw" id="pw" maxlength="30" placeholder="Password"><br>
+						<input type="text" name="name" id="name" maxlength="10" placeholder="Name"><br>
+						<input type="text" name="tel" id="tel" maxlength="30" placeholder="Tel"><br>
 						<!-- <input type="text" name="tel" placeholder="univ" readonly><br> -->
 						<select name="sel" id="sel">
 							<option value="">학교를 선택해주세요</option>
