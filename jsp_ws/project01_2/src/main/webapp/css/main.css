@@ -16,6 +16,7 @@
     border: 1px solid gainsboro;
     border-radius: 10px;
     float: left;
+    cursor: pointer;
 }
 
 /* 공지사항 대제목 */
@@ -47,6 +48,7 @@
     float: right;
     border: 1px solid gainsboro;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #free_board .freeBoard_title{
@@ -77,6 +79,7 @@
     border-radius: 10px;
     clear: both;
     float: left;
+    cursor: pointer;
 }
 #timeTable > .timeTable_title{
     border-bottom: 1px solid black;
@@ -91,6 +94,7 @@
     border: 1px solid gainsboro;
     border-radius: 10px;
     float: right;
+    cursor: pointer;
 }
 #hot_board .hotBoard_title{
     border-bottom: 1px solid black;
@@ -99,3 +103,43 @@
 .items:last-child{
 	border:none;
 }
+
+/* 메인 시간표(로그인 X) */
+.main_timetable_box{
+	width: 520px;
+	height: 380px;
+	/* border: 1px solid red; */
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	backdrop-filter: blur(1px);
+}
+
+.main_timetable_box > h3{
+	text-align: center;
+	line-height: 380px;
+	color: gray;
+	user-select: none;
+}
+.outer{
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 380px;
+	width: 520px;
+	height: 380px;
+	/* border: 1px solid blue; */
+}
+#timeTable table{
+	width: 520px;
+	height: 380px;
+	margin: 10px auto 0 auto;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid gainsboro;
+}
+#timeTable table .period, .timeth{
+	width: 70px;
+}
+

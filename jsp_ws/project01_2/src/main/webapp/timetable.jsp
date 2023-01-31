@@ -6,11 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>시간표</title>
-<link rel="stylesheet" href="css/timetable.css?v1.0.0">
+<link rel="stylesheet" href="css/timetable.css?v1.0.3">
 </head>
 <body id="timetable">
 	<%@ include file="header.jsp" %>
 	<div class="wrap">
+		<!-- 시간표 -->
 		<table border="1">
 			<thead>
 				<tr>
@@ -24,24 +25,23 @@
 				</tr>
 			<thead>
 			<tbody id="tbody">
-			<%-- <c:forEach var="i" begin="1" end="12" step="1">
-				<tr id="row${i }">
-					<td class="period class${i }">${i }교시</td>
-					<td id="row${i}_monday"></td>
-					<td id="row${i}_tuesday"></td>
-					<td id="row${i}_wednesday"></td>
-					<td id="row${i}_thursday"></td>
-					<td id="row${i}_friday"></td>
-					<c:if test="${i <= 5 }">
-						<td class="timeth">오전 ${i + 7}시</td>
-					</c:if>
-					<c:if test="${i > 5 }">
-						<td class="timeth">오후 ${i - 5}시</td>
-					</c:if>
-				</tr>
-			</c:forEach> --%>
+				<c:forEach var="i" begin="1" end="12" step="1">
+					<tr>
+						<td class="period">${i}교시</td>
+						<c:forEach var="j" begin="1" end="5" step="1">
+							<td class="day${j}_startTime${i}_endTime${i + 1}"></td>
+						</c:forEach>
+						<c:if test="${i <= 5}">
+							<td class="timeth">오전 ${i+7}시</td>
+						</c:if>
+						<c:if test="${i > 5 }">
+							<td class="timeth">오후 ${i-5}시</td>
+						</c:if>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+		<!-- 시간표 등록 -->
 		<div id="addSubject_btn">+ 수업추가</div>
 		<form id="addSubject_box">
 			<div class="x_btn">X</div>
@@ -68,32 +68,26 @@
 						<p class="hourplace">
 							<select class="startHour">
 								<option value="">시작 시간</option>
-								<option value="8">오전 8시</option>
-								<option value="9">오전 9시</option>
-								<option value="10">오전 10시</option>
-								<option value="11">오전 11시</option>
-								<option value="12">오전 12시</option>
-								<option value="13">오후 1시</option>
-								<option value="14">오후 2시</option>
-								<option value="15">오후 3시</option>
-								<option value="16">오후 4시</option>
-								<option value="17">오후 5시</option>
-								<option value="18">오후 6시</option>
+								<c:forEach var="s" begin="1" end="11" step="1">
+									<c:if test="${s <= 5}">
+										<option value="${s}">오전 ${s+7}시</option>
+									</c:if>
+									<c:if test="${s > 5}">
+										<option value="${s}">오후 ${s-5}시</option>
+									</c:if>
+								</c:forEach>
 							</select>
 							<span> ~ </span>
 							<select class="endHour">
 								<option value="">종료 시간</option>
-								<option value="9">오전 9시</option>
-								<option value="10">오전 10시</option>
-								<option value="11">오전 11시</option>
-								<option value="12">오전 12시</option>
-								<option value="13">오후 1시</option>
-								<option value="14">오후 2시</option>
-								<option value="15">오후 3시</option>
-								<option value="16">오후 4시</option>
-								<option value="17">오후 5시</option>
-								<option value="18">오후 6시</option>
-								<option value="19">오후 7시</option>
+								<c:forEach var="e" begin="2" end="12" step="1">
+									<c:if test="${e <= 5}">
+										<option value="${e}">오전 ${e+7}시</option>
+									</c:if>
+									<c:if test="${e > 5}">
+										<option value="${e}">오후 ${e-5}시</option>
+									</c:if>
+								</c:forEach>
 							</select>
 							<input type="text" id="place" maxlength="15" placeholder="예) 이과대 303호">
 						</p>
@@ -108,22 +102,13 @@
 	</div>
 	<%@ include file="footer.jsp" %>
 <script>
-	//getTimetable();
+	getTimetable();
 	
 	// 과목추가 열기
 	$("#addSubject_btn").on("click", function(){
 		$("#addSubject_box").css("display", "block");
 	});
 	
-	
-	/*
-	// 시간
-	$(".endHour").mouseleave(function(){
-		if($(".startHour").val() > $(".endHour").val()){
-			$(".startHour").val($(".endHour").val() - 1);
-		}
-	}); 
-	*/
 	
 	// 과목추가 닫기버튼
 	$(".x_btn").on("click", function(){
@@ -136,33 +121,23 @@
 		$("#place").val("");	// 장소 초기화
 	});
 	
-	/* function getTimetable(){
+	// 시간표 불러오기
+	function getTimetable(){
 		const xhttp = new XMLHttpRequest();
-		xhttp.onload = function(){ */
-			const tbody = document.querySelector("#tbody");
-			tbody.replaceChildren();
-			tbody.innerHTML =
-				"<c:forEach var='i' begin='1' end='12' step='1'>"
-					+ "<tr id='row${i }'>"
-						+ "<td class='period class${i }'>${i }교시</td>"
-						+ "<td id='row${i}_monday'></td>"
-						+ "<td id='row${i}_tuesday'></td>"
-						+ "<td id='row${i}_wednesday'></td>"
-						+ "<td id='row${i}_thursday'></td>"
-						+ "<td id='row${i}_friday'></td>"
-						+ "<c:if test='${i <= 5}'>"
-							+ "<td class='timeth'>오전 ${i + 7}시</td>"
-						+ "</c:if>"
-						+ "<c:if test='${i > 5}'>"
-							+ "<td class='timeth'>오후 ${i - 5}시</td>"
-						+ "</c:if>"
-					+ "</tr>"
-				+ "</c:forEach>";
-		/* }
-		xhttp.open("GET", "getTimetable.do", true);
+		xhttp.onload = function(){
+			let data = this.responseText;
+			let obj = JSON.parse(data);
+			for(let i = 0; i < obj.length; i++){
+				$(".day" + obj[i].day + "_startTime" + obj[i].startTime + "_endTime" + obj[i].endTime).html(obj[i].subName + "<br>" + obj[i].profName + "<br>" + obj[i].place);
+				//$(".day" + obj[i].day + "_startTime" + obj[i].startTime + "_endTime" + obj[i].endTime).css("backgroundColor", "#" + Math.floor(Math.random() * 16777215).toString(16));
+			}
+		}
+		let id = $("#user_id").val();
+		xhttp.open("GET", "getTimetable.do?id=" + id, true);
 		xhttp.send();
-	}*/
+	}
 	 
+	
 	/* 요일선택 */
 	$("li").on("click", function(){
 		$("li").not(this).removeClass("on");	// 선택된 태그를 제외하고 on class 제거
@@ -173,6 +148,7 @@
 	
 	// 시간표 저장하기
 	$("#submit_btn").on("click", function(){
+		//alert("시작 : " + $(".startHour").val() + ", 종료 : " + $(".endHour").val())
 		if($("#input_subjectName").val() == ""){
 			alert("과목명을 입력해주세요.");
 			return;
@@ -184,6 +160,15 @@
 			return;
 		}else if($("#place").val() == ""){
 			alert("장소를 입력해주세요.");
+			return;
+		}else if($(".startHour").val() == ""){
+			alert("시작 시간을 입력해주세요.");
+			return;
+		}else if($(".endHour").val() == ""){
+			alert("종료 시간을 입력해주세요.");
+			return;
+		}else if(parseInt($(".startHour").val(), 10) >= parseInt($(".endHour").val(), 10)){
+			alert("강의시작시간은 강의종료시간보다 더 빨라야 합니다!");
 			return;
 		}
 		const xhttp = new XMLHttpRequest();
@@ -203,14 +188,31 @@
 				alert("등록 실패");
 			}
 		}
-		
 		let subName = $("#input_subjectName").val();
 		let profName = $("#input_professorName").val();
-		let day = $(".weeks > li.on").text();
+		let day0 = $(".weeks > li.on").text();
+		let day;
+		if(day0 == "월"){
+			day = 1;
+		}else if(day0 == "화"){
+			day = 2;
+		}else if(day0 == "수"){
+			day = 3;
+		}else if(day0 == "목"){
+			day = 4;
+		}else{
+			day = 5;
+		}
 		let startHour = $(".startHour").val();
 		let endHour = $(".endHour").val();
 		let place = $("#place").val();
 		let id = $("#user_id").val();
+		
+		// 만약 등록하려고 하는 자리에 강의가 있다면 등록불가
+		if($(".day" + day + "_startTime" + parseInt(startHour, 10) + "_endTime" + (parseInt(startHour, 10) + 1)).text() != ""){
+			alert("같은 시간에 이미 수업이 있습니다!");
+			return;
+		}
 		
 		xhttp.open("POST", "regSubject.do", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

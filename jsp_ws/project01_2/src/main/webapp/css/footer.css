@@ -7,6 +7,7 @@ footer{
 	margin-top: 10px;
 	clear:both;
 	width: 1300px;
+	padding-top: 30px;
 	border-top: solid 1px gainsboro;
 	height: 200px;
 }
@@ -19,7 +20,7 @@ footer{
 }
 footer .items{
     float: left;
-    margin: 0 0 0 100px;
+    margin: 0 0 0 170px;
 }
 footer h3{
     color: black;

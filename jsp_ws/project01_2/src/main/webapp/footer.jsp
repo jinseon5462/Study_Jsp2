@@ -5,17 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/footer.css?v1.0.0">
 </head>
 <body>
 <footer>
-	<nav id="bottom_menu">
+	<!-- <nav id="bottom_menu">
 	    <ul>
 	        <li>개인정보처리방침</li>
 	        <li>저작권 정보</li>
 	        <li>이용 안내</li>
 	    </ul>
-	</nav>
+	</nav> -->
 	<div class="items">
 	    <h3>문의전화</h3>
 	    <ul>

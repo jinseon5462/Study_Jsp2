@@ -16,14 +16,27 @@ public class TimetableDAO {
 					 + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, table.getSubName());
-			pstmt.setString(2, table.getProfName());
-			pstmt.setString(3, table.getDay());
-			pstmt.setInt(4, table.getStartTime());
-			pstmt.setInt(5, table.getEndTime());
-			pstmt.setString(6, table.getPlace());
-			pstmt.setString(7, table.getId());
-			result = pstmt.executeUpdate();
+			if(table.getEndTime() - table.getStartTime() > 1) {
+				for(int i = 0, j = 1; i < table.getEndTime() - table.getStartTime(); i++, j++) {
+					pstmt.setString(1, table.getSubName());
+					pstmt.setString(2, table.getProfName());
+					pstmt.setString(3, table.getDay());
+					pstmt.setInt(4, table.getStartTime() + i);
+					pstmt.setInt(5, table.getStartTime() + j);
+					pstmt.setString(6, table.getPlace());
+					pstmt.setString(7, table.getId());
+					result = pstmt.executeUpdate();
+				}
+			}else {
+				pstmt.setString(1, table.getSubName());
+				pstmt.setString(2, table.getProfName());
+				pstmt.setString(3, table.getDay());
+				pstmt.setInt(4, table.getStartTime());
+				pstmt.setInt(5, table.getEndTime());
+				pstmt.setString(6, table.getPlace());
+				pstmt.setString(7, table.getId());
+				result = pstmt.executeUpdate();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -48,6 +61,7 @@ public class TimetableDAO {
 				table.setEndTime(rs.getInt("endTime"));
 				table.setPlace(rs.getString("place"));
 				table.setId(rs.getString("id"));
+				System.out.println(table.toString());
 				list.add(table);
 			}
 		} catch (SQLException e) {
