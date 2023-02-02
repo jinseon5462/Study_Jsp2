@@ -21,7 +21,7 @@ table > thead{
 thead th{
 	height: 30px;
 }
-table td, th{
+table th{
 	color: gray;
 	font-weight: normal;
 }
@@ -177,19 +177,25 @@ form > h3{
 	border: 1px solid gainsboro;
 	background-color: #f5f5f5;
 }
-.addMore_btn{
-	width: 65px;
-	cursor: pointer;
-	margin-top: 5px;
-	color: #c40000;
-	font-weight: bold;
-	clear:both;
+.color{
+	clear: both;
+	display: flex;
+	width: 450px;
+	height: 50px;
+}
+.color > span{
+	width: 100px;
+	color: gray;
+	line-height: 50px;
+}
+#myBestColor{
+	margin-top: 10px;
+	width: 50px;
 }
 .submit{
-	clear: both;
 	position: absolute;
 	right: 30px;
-	margin-top: 20px;
+	bottom: 40px;
 }
 #submit_btn{
 	background-color: #c40000;

@@ -29,6 +29,7 @@ public class RegSubjectServlet extends HttpServlet {
 		table.setEndTime(Integer.parseInt(request.getParameter("endHour")));
 		table.setPlace(request.getParameter("place"));
 		table.setId(request.getParameter("id"));
+		table.setColor(request.getParameter("color"));
 		
 		int result = dao.insert(table);
 		PrintWriter out = response.getWriter();

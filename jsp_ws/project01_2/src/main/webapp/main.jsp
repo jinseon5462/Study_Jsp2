@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="css/main.css?v1.0.2">
+<link rel="stylesheet" href="css/main.css?v1.0.4">
 <script src="jquery/jquery-3.3.1.min.js"></script>
 
 </head>
@@ -14,7 +14,7 @@
 <c:if test="${sessionScope.user != null }">
 	<div class="main">
 		<div id="notice_board">
-		    <h3 class="title1"><a href="notice.jsp">홍보게시판</a></h3>
+		    <h3 class="title1"><a href="notice.jsp">공지게시판</a></h3>
 		    <ul class="notice_list">
 		    </ul>
 		</div>
@@ -59,7 +59,7 @@
 <c:if test="${sessionScope.user == null }">
 	<div class="main">
 		<div id="notice_board">
-		    <h3 class="title1"><a href="#" onclick="goLogin()">홍보게시판</a></h3>
+		    <h3 class="title1"><a href="#" onclick="goLogin()">공지게시판</a></h3>
 		    <ul class="notice_list">
 		    </ul>
 		</div>
@@ -195,6 +195,8 @@
 		if($("#user_id").val() == ""){
 			if(confirm("로그인 후 이용가능합니다.\n로그인 하시겠습니까?\n[만약 아이디가 없으시다면 회원가입 부탁드립니다.]") == true){
 				location.href = "login.jsp";
+			}else{
+				return;
 			}
 		}else{
 			location.href = "notice.jsp";
@@ -204,6 +206,8 @@
 		if($("#user_id").val() == ""){
 			if(confirm("로그인 후 이용가능합니다.\n로그인 하시겠습니까?\n[만약 아이디가 없으시다면 회원가입 부탁드립니다.]") == true){
 				location.href = "login.jsp";
+			}else{
+				return;
 			}
 		}else{
 			location.href = "free.jsp";
@@ -213,6 +217,8 @@
 		if($("#user_id").val() == ""){
 			if(confirm("로그인 후 이용가능합니다.\n로그인 하시겠습니까?\n[만약 아이디가 없으시다면 회원가입 부탁드립니다.]") == true){
 				location.href = "login.jsp";
+			}else{
+				return;
 			}
 		}else{
 			location.href = "timetable.jsp";
@@ -222,6 +228,8 @@
 		if($("#user_id").val() == ""){
 			if(confirm("로그인 후 이용가능합니다.\n로그인 하시겠습니까?\n[만약 아이디가 없으시다면 회원가입 부탁드립니다.]") == true){
 				location.href = "login.jsp";
+			}else{
+				return;
 			}
 		}else{
 			location.href = "#";

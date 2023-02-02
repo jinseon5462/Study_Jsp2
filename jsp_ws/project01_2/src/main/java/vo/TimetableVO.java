@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class TimetableVO {
-	private int tno;
 	private String subName;
 	private String profName;
 	private String day;
@@ -17,4 +16,5 @@ public class TimetableVO {
 	private int endTime;
 	private String place;
 	private String id;
+	private String color;
 }

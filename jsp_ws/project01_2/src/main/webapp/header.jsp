@@ -19,7 +19,7 @@
 				<ul>
 				    <li><a href="index.jsp">홈으로</a></li>
 				    <li><a href="free.jsp">자유게시판</a></li>
-				    <li><a href="notice.jsp">홍보게시판</a></li>
+				    <li><a href="notice.jsp">공지게시판</a></li>
 				    <li><a href="timetable.jsp">시간표</a></li>
 				    <li><a href="#">인기게시판</a></li>
 				</ul>
@@ -35,7 +35,7 @@
 				<ul>
 				    <li><a href="index.jsp">홈으로</a></li>
 				    <li><a href="#" onclick="goLogin()">자유게시판</a></li>
-				    <li><a href="#" onclick="goLogin()">홍보게시판</a></li>
+				    <li><a href="#" onclick="goLogin()">공지게시판</a></li>
 				    <li><a href="#" onclick="goLogin()">시간표</a></li>
 				    <li><a href="#" onclick="goLogin()">인기게시판</a></li>
 				</ul>

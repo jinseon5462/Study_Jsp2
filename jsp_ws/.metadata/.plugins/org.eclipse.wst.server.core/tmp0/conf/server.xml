@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/practice_ajax_crud" path="/practice_ajax_crud" reloadable="true" source="org.eclipse.jst.jee.server:practice_ajax_crud"/><Context docBase="/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ajax_ljs" path="/ajax_ljs" reloadable="true" source="org.eclipse.jst.jee.server:ajax_ljs"/></Host>
+      <Context docBase="/Users/jinseon/dev_jsp2/jsp_ws/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/jinseon/dev_jsp2/jsp_ws/project01_2/src/main/webapp" path="/project01_2" reloadable="true" source="org.eclipse.jst.jee.server:project01_2"><Resources><PreResources base="/Users/jinseon/dev_jsp2/jsp_ws/project01_2/build/classes" classLoaderOnly="false" className="org.apache.catalina.webresources.DirResourceSet" internalPath="/" webAppMount="/WEB-INF/classes"/></Resources></Context></Host>
     </Engine>
   </Service>
 </Server>

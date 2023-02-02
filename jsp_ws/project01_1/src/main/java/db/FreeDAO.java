@@ -150,11 +150,95 @@ public class FreeDAO {
 				free.setUniv(rs.getString("univ"));
 				free.setRegdate(rs.getDate("regdate"));
 				free.setView(rs.getInt("view"));
+				
+				// 해당 게시물의 댓글 ArrayList 가져오기
+				String query3 = "SELECT * FROM project01_reply WHERE bno = ? ORDER BY regdate DESC";
+				pstmt = conn.prepareStatement(query3);
+				pstmt.setInt(1, free.getBno());
+				ArrayList<ReplyVO> replyList = new ArrayList<>();
+				ResultSet rs2 = pstmt.executeQuery();
+				while(rs2.next()) {
+					ReplyVO reply = new ReplyVO();
+					reply.setRno(rs2.getInt("rno"));
+					reply.setBno(rs.getInt("bno"));
+					reply.setContent(rs2.getString("content"));
+					reply.setId(rs2.getString("id"));
+					reply.setUniv(rs2.getString("univ"));
+					reply.setRegdate(rs2.getDate("regdate"));
+					replyList.add(reply);
+				}
+				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return free;
+	}
+	
+	// 게시글 수정
+	public FreeVO updateInfo(String title, String content, int bno) {
+		FreeVO free = null;
+		Connection conn = DBcon.getConnection();
+		String query = "UPDATE project01_free SET title = ?, content = ?, regdate = now() WHERE bno = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, bno);
+			pstmt.executeUpdate();
+			
+			String query2 = "SELECT * FROM project01_free WHERE bno = ?";
+			pstmt = conn.prepareStatement(query2);
+			pstmt.setInt(1, bno);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				free = new FreeVO();
+				free.setBno(rs.getInt("bno"));
+				free.setTitle(rs.getString("title"));
+				free.setContent(rs.getString("content"));
+				free.setId(rs.getString("id"));
+				free.setUniv(rs.getString("univ"));
+				free.setRegdate(rs.getDate("regdate"));
+				free.setView(rs.getInt("view"));
+				
+				// 해당 게시물의 댓글 ArrayList 가져오기
+				String query3 = "SELECT * FROM project01_reply WHERE bno = ? ORDER BY regdate DESC";
+				pstmt = conn.prepareStatement(query3);
+				pstmt.setInt(1, free.getBno());
+				ArrayList<ReplyVO> replyList = new ArrayList<>();
+				ResultSet rs2 = pstmt.executeQuery();
+				while(rs2.next()) {
+					ReplyVO reply = new ReplyVO();
+					reply.setRno(rs2.getInt("rno"));
+					reply.setBno(rs.getInt("bno"));
+					reply.setContent(rs2.getString("content"));
+					reply.setId(rs2.getString("id"));
+					reply.setUniv(rs2.getString("univ"));
+					reply.setRegdate(rs2.getDate("regdate"));
+					replyList.add(reply);
+				}
+				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return free;
+	}
+	
+	
+	// 게시글 삭제
+	public int removeInfo(int bno) {
+		int result = 0;
+		Connection conn = DBcon.getConnection();
+		try {
+			String query = "DELETE FROM project01_free WHERE bno = ?";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bno);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	// 페이지 처리

@@ -1,6 +1,7 @@
 package common;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class ReplyVO {
 	private String content;
 	private String id;
 	private String univ;
-	private Date regdate;
+	private Timestamp regdate;
 }

@@ -67,6 +67,7 @@ public class NoticeDAO {
 		String query = "UPDATE project01_notice SET title = ?, content = ?, regdate = now() WHERE num = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
+			System.out.println(1);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, num);

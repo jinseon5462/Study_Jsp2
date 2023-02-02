@@ -42,7 +42,7 @@ public class ReplyDAO {
 				reply.setContent(rs.getString("content"));
 				reply.setId(rs.getString("id"));
 				reply.setUniv(rs.getString("univ"));
-				reply.setRegdate(rs.getDate("regdate"));
+				reply.setRegdate(rs.getTimestamp("regdate"));
 				list.add(reply);
 			}
 		} catch (SQLException e) {

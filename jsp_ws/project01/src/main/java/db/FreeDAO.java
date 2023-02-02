@@ -60,7 +60,7 @@ public class FreeDAO {
 					reply.setContent(rs2.getString("content"));
 					reply.setId(rs2.getString("id"));
 					reply.setUniv(rs2.getString("univ"));
-					reply.setRegdate(rs2.getDate("regdate"));
+					reply.setRegdate(rs2.getTimestamp("regdate"));
 					replyList.add(reply);
 				}
 				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
@@ -113,7 +113,7 @@ public class FreeDAO {
 					reply.setContent(rs2.getString("content"));
 					reply.setId(rs2.getString("id"));
 					reply.setUniv(rs2.getString("univ"));
-					reply.setRegdate(rs2.getDate("regdate"));
+					reply.setRegdate(rs2.getTimestamp("regdate"));
 					replyList.add(reply);
 				}
 				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
@@ -164,7 +164,7 @@ public class FreeDAO {
 					reply.setContent(rs2.getString("content"));
 					reply.setId(rs2.getString("id"));
 					reply.setUniv(rs2.getString("univ"));
-					reply.setRegdate(rs2.getDate("regdate"));
+					reply.setRegdate(rs2.getTimestamp("regdate"));
 					replyList.add(reply);
 				}
 				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장
@@ -214,7 +214,7 @@ public class FreeDAO {
 					reply.setContent(rs2.getString("content"));
 					reply.setId(rs2.getString("id"));
 					reply.setUniv(rs2.getString("univ"));
-					reply.setRegdate(rs2.getDate("regdate"));
+					reply.setRegdate(rs2.getTimestamp("regdate"));
 					replyList.add(reply);
 				}
 				free.setReplyList(replyList);	// 가져온 댓글목록을 FreeVO필드에 저장

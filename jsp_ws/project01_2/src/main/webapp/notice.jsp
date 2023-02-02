@@ -13,7 +13,7 @@
 	<div class="notice_container">
 		<div id="notice_wrap">
 			<div id="notice_title">
-				<h2><a href="notice.jsp">홍보게시판</a></h2>
+				<h2><a href="notice.jsp">공지게시판</a></h2>
 			</div>
 			<c:if test="${sessionScope.user.grade eq 'manager' }">
 				<div id="write_line_off">

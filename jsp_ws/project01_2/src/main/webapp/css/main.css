@@ -21,6 +21,7 @@
 
 /* 공지사항 대제목 */
 #notice_board .title1{
+	text-align: center;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
 }
@@ -30,7 +31,6 @@
     margin-top: 10px;
 }
 .notice_list > li{
-    margin: 10px 0 0px 0;
     border-bottom: 1px solid gainsboro;
 }
 .items > span{
@@ -52,6 +52,7 @@
 }
 
 #free_board .freeBoard_title{
+	text-align: center;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
 }
@@ -59,7 +60,6 @@
     margin-top: 10px;
 }
 .free_list > li{
-    margin: 10px 0 0px 0;
     border-bottom: 1px solid gainsboro;
 }
 .items{
@@ -82,6 +82,7 @@
     cursor: pointer;
 }
 #timeTable > .timeTable_title{
+	text-align: center;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
 }
@@ -97,6 +98,7 @@
     cursor: pointer;
 }
 #hot_board .hotBoard_title{
+	text-align: center;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
 }

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.main{
+	width: 1100px;
+	height: 950px;
+    margin-top: 20px;
+    float: right;
+}
+/* 메인 공지사항 섹션 */
+#notice_board{
+    width: 540px;
+    height: 450px;
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    float: left;
+}
+
+/* 공지사항 대제목 */
+#notice_board .title1{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+/* 공지 박스리스트 */
+.notice_list{
+    margin-top: 10px;
+}
+.notice_list > li{
+    margin: 10px 0 0px 0;
+    border-bottom: 1px solid gainsboro;
+}
+.items > span{
+    float: right;
+    margin-right: 10px;
+}
+
+/* 메인 자유게시판 섹션 */
+#free_board{
+    width: 540px;
+    height: 450px;
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: right;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+}
+
+#free_board .freeBoard_title{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+.free_list{
+    margin-top: 10px;
+}
+.free_list > li{
+    margin: 10px 0 0px 0;
+    border-bottom: 1px solid gainsboro;
+}
+.items{
+    padding: 5px 0 5px 0;
+}
+.items > span{
+    float: right;
+    margin-right: 10px;
+}
+/* 시간표 구역 */
+#timeTable{
+	width: 540px;
+    height: 450px;
+    padding: 10px;
+    margin: 10px 5px 0 5px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    clear: both;
+    float: left;
+}
+#timeTable > .timeTable_title{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+/* 인기게시글 리스트 */
+#hot_board{
+	width: 540px;
+    height: 450px;
+    padding: 10px;
+    margin: 10px 5px 0 5px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    float: right;
+}
+#hot_board .hotBoard_title{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+.items:last-child{
+	border:none;
+}

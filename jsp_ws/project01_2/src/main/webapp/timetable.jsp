@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>시간표</title>
-<link rel="stylesheet" href="css/timetable.css?v1.0.3">
+<link rel="stylesheet" href="css/timetable.css?v1.0.5">
 </head>
 <body id="timetable">
 	<%@ include file="header.jsp" %>
@@ -26,16 +26,16 @@
 			<thead>
 			<tbody id="tbody">
 				<c:forEach var="i" begin="1" end="12" step="1">
-					<tr>
-						<td class="period">${i}교시</td>
+					<tr class="row${i }">
+						<th class="period">${i}교시</th>
 						<c:forEach var="j" begin="1" end="5" step="1">
-							<td class="day${j}_startTime${i}_endTime${i + 1}"></td>
+							<td></td>
 						</c:forEach>
 						<c:if test="${i <= 5}">
-							<td class="timeth">오전 ${i+7}시</td>
+							<th class="timeth">오전 ${i+7}시</th>
 						</c:if>
 						<c:if test="${i > 5 }">
-							<td class="timeth">오후 ${i-5}시</td>
+							<th class="timeth">오후 ${i-5}시</th>
 						</c:if>
 					</tr>
 				</c:forEach>
@@ -95,6 +95,10 @@
 				</div>
 				<!-- <div class="addMore_btn">+ 더 입력</div> -->
 			</div>
+			<div class="color">
+				<span>적용할 색깔</span>
+				<input type="color" id="myBestColor" name="color" value="#FFECA8">
+			</div>
 			<div class="submit">
 				<button type="button" id="submit_btn">저장</button>
 			</div>
@@ -119,6 +123,7 @@
 		$(".startHour").val("");	// 시작시간 초기화
 		$(".endHour").val("");	// 종료시간 초기화
 		$("#place").val("");	// 장소 초기화
+		$("#myBestColor").val("#FFECA8"); // 색깔 초기화
 	});
 	
 	// 시간표 불러오기
@@ -128,15 +133,24 @@
 			let data = this.responseText;
 			let obj = JSON.parse(data);
 			for(let i = 0; i < obj.length; i++){
-				$(".day" + obj[i].day + "_startTime" + obj[i].startTime + "_endTime" + obj[i].endTime).html(obj[i].subName + "<br>" + obj[i].profName + "<br>" + obj[i].place);
-				//$(".day" + obj[i].day + "_startTime" + obj[i].startTime + "_endTime" + obj[i].endTime).css("backgroundColor", "#" + Math.floor(Math.random() * 16777215).toString(16));
+				$(".row" + obj[i].startTime).children().eq(obj[i].day).html("<div class='subInfo'>" + "<div id='subName'>" + obj[i].subName + "</div>" + "<div id='profName'>" + obj[i].profName + "</div>" + "<div id='info_place'>" + obj[i].place + "</div>" + "</div>");
+				$(".row" + obj[i].startTime).children().eq(obj[i].day).css("backgroundColor", obj[i].color);
+				//$(".row" + obj[i].startTime).children().eq(obj[i].day).addClass(obj[i].subjectLabel);
 			}
+			/* $(".sub1").eq(0).attr("rowspan", $(".sub1").length);
+			$(".sub1").not(":eq(0)").remove();
+			$(".sub2").eq(0).attr("rowspan", $(".sub2").length);
+			$(".sub2").eq(1).remove();
+			$(".sub2").last().remove();
+			$(".sub3").eq(0).attr("rowspan", $(".sub3").length);
+			$(".sub3").last().remove();
+			$(".sub4").eq(0).attr("rowspan", $(".sub4").length);
+			$(".sub4").last().remove(); */
 		}
 		let id = $("#user_id").val();
 		xhttp.open("GET", "getTimetable.do?id=" + id, true);
 		xhttp.send();
 	}
-	 
 	
 	/* 요일선택 */
 	$("li").on("click", function(){
@@ -183,6 +197,7 @@
 				$(".startHour").val("");	// 시작시간 초기화
 				$(".endHour").val("");	// 종료시간 초기화
 				$("#place").val("");	// 장소 초기화
+				$("#myBestColor").val("#FFECA8"); // 색깔 초기화
 				getTimetable();
 			}else{
 				alert("등록 실패");
@@ -207,9 +222,9 @@
 		let endHour = $(".endHour").val();
 		let place = $("#place").val();
 		let id = $("#user_id").val();
-		
+		let color = $("#myBestColor").val();
 		// 만약 등록하려고 하는 자리에 강의가 있다면 등록불가
-		if($(".day" + day + "_startTime" + parseInt(startHour, 10) + "_endTime" + (parseInt(startHour, 10) + 1)).text() != ""){
+		if($(".row" + startHour).children().eq(day).text() != ""){
 			alert("같은 시간에 이미 수업이 있습니다!");
 			return;
 		}
@@ -224,7 +239,16 @@
 				+ "&endHour=" + endHour
 				+ "&place=" + place
 				+ "&id=" + id
+				+ "&color=" + color
 		);
+	});
+	
+	// 삭제
+	$("#tbody td").mouseover(function(e){
+		if(e.target.innerText == ""){
+			return;
+		}
+		alert(e.target.innerText);
 	});
 </script>
 </body>

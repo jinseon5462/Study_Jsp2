@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class FreeVO {
+	
 	private int bno;
 	private String title;
 	private String content;
