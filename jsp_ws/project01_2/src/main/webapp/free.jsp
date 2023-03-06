@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>자유게시판</title>
-<link rel="stylesheet" href="css/free.css?v1.63">
+<link rel="stylesheet" href="css/free.css?v1.0.64">
 <script src="jquery/jquery-3.3.1.min.js"></script>
 </head>
 <body id="free">
@@ -26,16 +26,67 @@
 			<div id="freeboard_main">
 				<!-- 데이터 -->
 			</div>
+			<div class="beforeAfterWrap">
+			</div>
 		</div>
-		<!-- <div id="sideboard_wrap">
-			sideboard
-		</div> -->
 	</div>
 <%@ include file="footer.jsp" %>
 <script>
-	getList();
+	let totalPage = 0;
+	let pageNum = 1;
+	
+	$(document).ready(function(){
+		getList(pageNum);
+		getTotalCount();
+	});
+	
+	// 총 페이지 갯수
+	function getTotalCount(){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			let result = parseInt(this.responseText, 10);
+			totalPage = Math.ceil(result / 10);
+			//alert("총 갯수 : " + totalPage);
+			if(totalPage == 0){
+				$(".beforeAfterWrap").empty();
+			}else if(totalPage < 10){
+				// 10페이지 이하일 경우 초기 세팅
+				$(".beforeAfterWrap").empty();
+				$(".beforeAfterWrap").append("<div class='prevBtn'><<</div>");
+				for(let i = 0; i < totalPage; i++){
+					$(".beforeAfterWrap").append("<div class='pageCount'>" + (i + 1) + "</div>");
+				}
+				$(".pageCount").filter(":first").css("color", "red"); // 첫페이지 색깔 on
+				$(".prevBtn").addClass("noBtn");
+				$(".noBtn").removeClass("prevBtn");
+			}else{
+				// 만약 10페이지 이상일경우 다음버튼이랑 같이 출력(초기 페이지라 이전버튼 필요 X) css 박스 움직이는거 생각하기
+				$(".beforeAfterWrap").empty();
+				$(".beforeAfterWrap").append("<div class='prevBtn'><<</div>");
+				for(let i = 0; i < 10; i++){
+					$(".beforeAfterWrap").append("<div class='pageCount'>" + (i + 1) + "</div>");
+				}
+				$(".beforeAfterWrap").append("<div class='nextBtn'>>></div>");	// 다음버튼
+				$(".pageCount").filter(":first").css("color", "red"); // 첫페이지 색깔 on
+				$(".prevBtn").addClass("noBtn");
+				$(".noBtn").removeClass("prevBtn");
+			}
+		}
+		let univ = $("#user_univ").val();
+		xhttp.open("get", "getCount.do?univ=" + univ, true);
+		xhttp.send();
+	}
+	
+	// 페이지 번호별 리스트
+	$(document).on("click", ".pageCount", function(){
+		//alert($(this).text());
+		$(this).css("color", "red");	// 자기 자신한테만 색깔
+		$(".pageCount").not(this).css("color", "black");	// 자기자신 빼고 색깔 X
+		let pageNum = $(this).text(); // 클릭된 번호 파라미터
+		getList(pageNum);
+	});
 	// 게시글 목록 불러오기
-	function getList(){
+	function getList(pageNum){
 		const xhttp = new XMLHttpRequest();
 		xhttp.onload = function(){
 			let data = this.responseText;
@@ -63,7 +114,7 @@
 			}
 		}
 		let univ = $("#user_univ").val();
-		xhttp.open("GET", "getFreeList.do?univ=" + univ, true);
+		xhttp.open("GET", "getFreeList.do?univ=" + univ + "&pageNum=" + pageNum, true);
 		xhttp.send();
 	}
 	
@@ -381,6 +432,7 @@
 					alert("게시글 등록 성공");
 					$("#write_line_on").css("display", "none");
 					$("#write_line_off").css("display", "block");
+					$("#write_line_off").css("display", "flex");
 					$(".free_container").css("height", "950px");
 					$("#write_post_title").val("");
 					$("#write_post_content").val("");

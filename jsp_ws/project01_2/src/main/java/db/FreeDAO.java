@@ -31,13 +31,14 @@ public class FreeDAO {
 	}
 	
 	// 자유게시판 글목록
-	public ArrayList<FreeVO> getFreeList(String univ){
+	public ArrayList<FreeVO> getFreeList(String univ, int count){
 		ArrayList<FreeVO> list = new ArrayList<>();
 		Connection conn = DBcon.getConnection();
 		try {
-			String query = "SELECT * FROM project01_free WHERE univ = ? ORDER BY regdate DESC LIMIT 0, 10";
+			String query = "SELECT * FROM project01_free WHERE univ = ? ORDER BY regdate DESC LIMIT ?, 10";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, univ);
+			pstmt.setInt(2, count);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				FreeVO free = new FreeVO();
@@ -74,6 +75,22 @@ public class FreeDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public int pageCount(String univ) {
+		int result = 0;
+		Connection conn = DBcon.getConnection();
+		String query = "SELECT COUNT(*) as cnt FROM project01_free WHERE univ = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, univ);
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getInt("cnt");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public ArrayList<FreeVO> getMainFreeList(String univ){

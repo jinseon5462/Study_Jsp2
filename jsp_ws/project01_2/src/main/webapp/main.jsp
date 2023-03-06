@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="css/main.css?v1.0.8">
+<link rel="stylesheet" href="css/main.css?v1.0.9">
 <script src="jquery/jquery-3.3.1.min.js"></script>
 
 </head>
@@ -161,6 +161,10 @@
 			xhttp.open("GET", "getNotLoginMainFreeList.do", true);
 			xhttp.send();
 		}
+		
+		$(".hot_list").append(
+			"<li class='noLoginText'>로그인 후 이용가능합니다!</li>"
+		);
 	</script>
 </c:if>
 <script>
@@ -194,8 +198,9 @@
 		xhttp.send();
 	}
 	
+	// HOT 게시글
 	function getHotList(){
-		const notice_list = document.querySelector(".hot_list");
+		const hot_list = document.querySelector(".hot_list");
 		const xhttp = new XMLHttpRequest();
 		xhttp.onload = function(){
 			let data = this.responseText;
@@ -203,7 +208,7 @@
 			for(let i = 0; i < obj.length; i++){
 				console.log(obj[i].title.length);
 				if(obj[i].title.length < 20){
-					notice_list.innerHTML += 
+					hot_list.innerHTML += 
 						"<li class='items'>" + obj[i].title + "<span>"
 						+ obj[i].regdate + "</span></li>";
 				}else{
@@ -214,7 +219,8 @@
 				}
 			}
 		}
-		xhttp.open("GET", "getHotList.do", true);
+		let univ = $("#user_univ").val();
+		xhttp.open("GET", "getHotList.do?univ=" + univ, true);
 		xhttp.send();
 	}
 	

@@ -151,3 +151,10 @@
 .subInfo > div{
 	font-size: 3px;
 }
+.noLoginText{
+	text-align: center;
+	line-height: 580px;
+	font-size: 20px;
+	font-weight: bold;
+	color: gray;
+}
