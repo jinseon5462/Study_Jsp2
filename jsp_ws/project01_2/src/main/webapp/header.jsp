@@ -18,10 +18,10 @@
 			<nav id="navbar">
 				<ul>
 				    <li><a href="index.jsp">홈으로</a></li>
+				    <li><a href="notice.jsp">공지 게시판</a></li>
 				    <li><a href="free.jsp">자유게시판</a></li>
-				    <li><a href="notice.jsp">공지게시판</a></li>
 				    <li><a href="timetable.jsp">시간표</a></li>
-				    <li><a href="#">인기게시판</a></li>
+				    <li><a href="hot.jsp">인기게시판</a></li>
 				</ul>
 			</nav>
 			<div class="buttons">
@@ -34,8 +34,8 @@
 			<nav id="navbar">
 				<ul>
 				    <li><a href="index.jsp">홈으로</a></li>
+				    <li><a href="#" onclick="goLogin()">공지 게시판</a></li>
 				    <li><a href="#" onclick="goLogin()">자유게시판</a></li>
-				    <li><a href="#" onclick="goLogin()">공지게시판</a></li>
 				    <li><a href="#" onclick="goLogin()">시간표</a></li>
 				    <li><a href="#" onclick="goLogin()">인기게시판</a></li>
 				</ul>
@@ -61,26 +61,19 @@
 			$("#navbar > ul > li:nth-child(1)").css("border-bottom", "3px solid #ff4000");
 			$("#navbar > ul > li:nth-child(1) > a").css("color", "black");
 		}else if(document.querySelector("body").id == "free"){
-			$("#navbar > ul > li:nth-child(2)").css("border-bottom", "3px solid #ff4000");
-			$("#navbar > ul > li:nth-child(2) > a").css("color", "black");
-		}else if(document.querySelector("body").id == "notice"){
 			$("#navbar > ul > li:nth-child(3)").css("border-bottom", "3px solid #ff4000");
 			$("#navbar > ul > li:nth-child(3) > a").css("color", "black");
+		}else if(document.querySelector("body").id == "notice"){
+			$("#navbar > ul > li:nth-child(2)").css("border-bottom", "3px solid #ff4000");
+			$("#navbar > ul > li:nth-child(2) > a").css("color", "black");
 		}else if(document.querySelector("body").id == "timetable"){
 			$("#navbar > ul > li:nth-child(4)").css("border-bottom", "3px solid #ff4000");
 			$("#navbar > ul > li:nth-child(4) > a").css("color", "black");
+		}else{
+			$("#navbar > ul > li:nth-child(5)").css("border-bottom", "3px solid #ff4000");
+			$("#navbar > ul > li:nth-child(5) > a").css("color", "black");
 		}
 	});
-	/* info();
-	function info(){
-		let id = $("#user_id").val();
-		let pw = $("#user_pw").val();
-		let name = $("#user_name").val();
-		let tel = $("#user_tel").val();
-		let univ = $("#user_univ").val();
-		let grade = $("#user_grade").val();
-		alert("아이디 : " + id + "\n비밀번호 : " + pw + "\n이름 : " + name + "\n전화번호 : " + tel + "\n학교 : " + univ + "\n등급 : " + grade);
-	} */
 </script>
 </body>
 </html>

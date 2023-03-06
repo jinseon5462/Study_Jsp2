@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>홍보게시판</title>
-<link rel="stylesheet" href="css/notice.css?v1.21">
+<link rel="stylesheet" href="css/notice.css?v1.22">
 </head>
 <body id="notice">
 <%@ include file="header.jsp" %>
@@ -28,9 +28,6 @@
 			<div id="noticeboard_main">
 				<!-- 데이터 -->
 			</div>
-		</div>
-		<div id="sideboard_wrap">
-			sideboard
 		</div>
 	</div>
 <%@ include file="footer.jsp" %>

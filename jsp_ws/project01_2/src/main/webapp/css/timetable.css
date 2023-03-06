@@ -123,6 +123,10 @@ form > h3{
 	border: 1px solid gainsboro;
 	background-color: #f5f5f5;
 }
+
+.subName{
+	margin-top: 5px;
+}
 .timeplace{
 	display: flex;
 }
@@ -210,4 +214,20 @@ form > h3{
 .time_place li.on{
 	color: #fff;
 	background-color: #c40000;
+}
+.subInfo{
+	padding-top: 10px;
+	position: relative;
+}
+.deleteSubjectBtn{
+	margin-left: auto;
+	width: 15px;
+	font-size: 6px;
+	color: black;
+	position: absolute;
+	border: 1px solid gray;
+	cursor: pointer;
+	top: 0px;
+	right: -1px;
+	display: none;
 }

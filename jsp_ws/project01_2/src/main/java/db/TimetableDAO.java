@@ -64,12 +64,28 @@ public class TimetableDAO {
 				table.setPlace(rs.getString("place"));
 				table.setId(rs.getString("id"));
 				table.setColor(rs.getString("color"));
-				System.out.println(table.toString());
+				//System.out.println(table.toString());
 				list.add(table);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public int deleteSubject(String subName, String profName, String place) {
+		int result = 0;
+		Connection conn = DBcon.getConnection();
+		try {
+			String query = "DELETE FROM project01_timetable WHERE subName = ? AND profName = ? AND place = ?";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, subName);
+			pstmt.setString(2, profName);
+			pstmt.setString(3, place);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

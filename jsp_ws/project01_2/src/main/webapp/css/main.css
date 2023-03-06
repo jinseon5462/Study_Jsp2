@@ -2,7 +2,7 @@
 
 .main{
 	width: 1100px;
-	height: 950px;
+	height: 1200px;
     margin-top: 20px;
     float: right;
 }
@@ -32,6 +32,7 @@
 }
 .notice_list > li{
     border-bottom: 1px solid gainsboro;
+    padding: 8px 0;
 }
 .items > span{
     float: right;
@@ -63,7 +64,7 @@
     border-bottom: 1px solid gainsboro;
 }
 .items{
-    padding: 5px 0 5px 0;
+    padding: 10px 0;
 }
 .items > span{
     float: right;
@@ -72,7 +73,7 @@
 /* 시간표 구역 */
 #timeTable{
 	width: 540px;
-    height: 450px;
+	height: 680px;
     padding: 10px;
     margin: 10px 5px 0 5px;
     border: 1px solid gainsboro;
@@ -89,7 +90,7 @@
 /* 인기게시글 리스트 */
 #hot_board{
 	width: 540px;
-    height: 450px;
+    height: 680px;
     padding: 10px;
     margin: 10px 5px 0 5px;
     border: 1px solid gainsboro;
@@ -109,18 +110,18 @@
 /* 메인 시간표(로그인 X) */
 .main_timetable_box{
 	width: 520px;
-	height: 380px;
+	height: 680px;
 	/* border: 1px solid red; */
-	position: relative;
+	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 300px;
 	backdrop-filter: blur(1px);
 }
 
 .main_timetable_box > h3{
 	text-align: center;
-	line-height: 380px;
+	line-height: 680px;
 	color: gray;
 	user-select: none;
 }
@@ -130,7 +131,7 @@
 	right: 0;
 	bottom: 380px;
 	width: 520px;
-	height: 380px;
+	height: 680px;
 	/* border: 1px solid blue; */
 }
 #timeTable table{
@@ -144,4 +145,9 @@
 #timeTable table .period, .timeth{
 	width: 70px;
 }
-
+#timeTable td{
+	height: 50px;
+}
+.subInfo > div{
+	font-size: 3px;
+}

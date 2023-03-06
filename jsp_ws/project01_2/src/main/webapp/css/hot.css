@@ -1,76 +1,26 @@
 @charset "UTF-8";
 
-.free_container{
+.hot_container{
 	width: 1300px;
 	height: 950px;
-	/* border: 1px solid red; */
 	margin: 0 auto;	
 	display: flex;
 	margin-top: 20px;
 }
 
-#freeboard_wrap{
+#hotBoard_wrap{
 	/* border: solid 1px blue; */
 	width: 900px;
 	height: 950px;
 	margin: 0 auto;
 }
 
-/* 사이드보드 */
-#sideboard_wrap{
-	border: solid 1px green;
-	width: 300px;
-	height: 600px;
-}
-
 /* 상단 대제목 */
-#freeboard_title{
+#hotBoard_title{
 	width: 900px;
 	padding: 10px;
 	border: solid 1px gainsboro;
-}
-
-/* 글쓰기 박스 */
-#write_line_off{
-	display: flex;
-	cursor: pointer;
-	height: 50px;
-	margin: 5px 0;
-	/* display: block; */
-}
-
-#write_line_on{
-	margin-top: 5px;
-	display: none;
-}
-
-/* 글쓰기 */
-#writeArticleButton{
-	width: 900px;
-	height: 50px;
-	color: #adadad;
-	border-top: solid 2px #adadad;
-	border-left: solid 2px #adadad;
-	border-bottom: solid 2px #adadad;
-	padding: 10px;
-	background-color: #f5f5f5;
-	line-height: 30px;
-}
-/* 글쓰기 이미지 */
-#write_pen > img{
-	border-top: solid 2px #adadad;
-	border-right: solid 2px #adadad;
-	border-bottom: solid 2px #adadad;
-	background-color: #f5f5f5;
-	width: 50px;
-	height: 50px;
-}
-
-/* 게시글 메인박스 */
-#freeboard_main{
-	/* border-top: solid 1px gainsboro; */
-	/* border-right: solid 1px gainsboro;
-	border-left: solid 1px gainsboro; */
+	margin: 10px 0;
 }
 
 /* 포스트 한칸 */
@@ -120,40 +70,6 @@
 /* 게시글 댓글, 조회수 */
 .view_comment > #view, #comment{
 	margin-right: 5px;
-}
-
-/* 게시글 작성 */
-#write_post_title{
-	width: 900px;
-	height: 50px;
-	padding: 10px;
-	outline: none;
-	border: none;
-	border-top: solid 1px gainsboro;
-	border-left: solid 1px gainsboro;
-	font-weight: bold;
-}
-#write_post_content{
-	width: 900px;
-	height: 300px;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border: solid 1px gainsboro;
-	resize: none;
-}
-#write_post_content::placeholder {
-  font-size: 11px;
-}
-
-#write_input_wrap{
-	display: flex;
-}
-
-#write_input_wrap > img{
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
 }
 /* 게시글 상세보기 */
 #info_box{

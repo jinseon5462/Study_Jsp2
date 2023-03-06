@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>시간표</title>
-<link rel="stylesheet" href="css/timetable.css?v1.0.5">
+<link rel="stylesheet" href="css/timetable.css?v1.0.8">
 </head>
 <body id="timetable">
 	<%@ include file="header.jsp" %>
@@ -29,7 +29,7 @@
 					<tr class="row${i }">
 						<th class="period">${i}교시</th>
 						<c:forEach var="j" begin="1" end="5" step="1">
-							<td></td>
+							<td class="day${j}_startTime${i}_endTime${i + 1}"></td>
 						</c:forEach>
 						<c:if test="${i <= 5}">
 							<th class="timeth">오전 ${i+7}시</th>
@@ -113,7 +113,6 @@
 		$("#addSubject_box").css("display", "block");
 	});
 	
-	
 	// 과목추가 닫기버튼
 	$(".x_btn").on("click", function(){
 		$("#addSubject_box").css("display", "none");
@@ -128,24 +127,24 @@
 	
 	// 시간표 불러오기
 	function getTimetable(){
+		//alert("실행");
 		const xhttp = new XMLHttpRequest();
 		xhttp.onload = function(){
 			let data = this.responseText;
 			let obj = JSON.parse(data);
+			//$("#tbody").empty();
 			for(let i = 0; i < obj.length; i++){
-				$(".row" + obj[i].startTime).children().eq(obj[i].day).html("<div class='subInfo'>" + "<div id='subName'>" + obj[i].subName + "</div>" + "<div id='profName'>" + obj[i].profName + "</div>" + "<div id='info_place'>" + obj[i].place + "</div>" + "</div>");
+				$(".row" + obj[i].startTime).children().eq(obj[i].day).html(
+					"<div class='subInfo'>" 
+						+ "<div class='deleteSubjectBtn'>X</div>"
+						+ "<div id='subName'>" + obj[i].subName + "</div>" 
+						+ "<div id='profName'>" + obj[i].profName + "</div>" 
+						+ "<div id='info_place'>" + obj[i].place + "</div>" 
+					+ "</div>"
+				);
+				
 				$(".row" + obj[i].startTime).children().eq(obj[i].day).css("backgroundColor", obj[i].color);
-				//$(".row" + obj[i].startTime).children().eq(obj[i].day).addClass(obj[i].subjectLabel);
 			}
-			/* $(".sub1").eq(0).attr("rowspan", $(".sub1").length);
-			$(".sub1").not(":eq(0)").remove();
-			$(".sub2").eq(0).attr("rowspan", $(".sub2").length);
-			$(".sub2").eq(1).remove();
-			$(".sub2").last().remove();
-			$(".sub3").eq(0).attr("rowspan", $(".sub3").length);
-			$(".sub3").last().remove();
-			$(".sub4").eq(0).attr("rowspan", $(".sub4").length);
-			$(".sub4").last().remove(); */
 		}
 		let id = $("#user_id").val();
 		xhttp.open("GET", "getTimetable.do?id=" + id, true);
@@ -158,7 +157,6 @@
 		$(this).addClass("on");	// 클릭한 자신만 on class 부여함
 		/* alert($("li.on").text()); */
 	});
-	
 	
 	// 시간표 저장하기
 	$("#submit_btn").on("click", function(){
@@ -244,11 +242,35 @@
 	});
 	
 	// 삭제
-	$("#tbody td").mouseover(function(e){
-		if(e.target.innerText == ""){
+	$("td").on("mouseenter", function() {
+		$(this).find(".deleteSubjectBtn").show();
+	}).on("mouseleave", function() {
+		$(this).find(".deleteSubjectBtn").hide();
+	});
+	
+	$(document).on("click", ".deleteSubjectBtn", function() {
+		if(confirm("정말 삭제하시겠습니까?") == false){
 			return;
+		}else{
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function(){
+				let result = parseInt(this.responseText, 10);
+				if(result == 0){
+					alert("삭제 실패");
+				}else{
+					alert("삭제 완료");
+					history.go(0);	// 새로고침
+				}
+			}
+			let subInfoElement = $(this).closest('.subInfo');
+			let subName = subInfoElement.find('#subName').text();
+			let profName = subInfoElement.find('#profName').text();
+			let place = subInfoElement.find('#info_place').text();
+			console.log(subName, profName, place);
+			xhttp.open("post", "deleteSubject.do", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("subName=" + subName + "&profName=" + profName + "&place=" + place);
 		}
-		alert(e.target.innerText);
 	});
 </script>
 </body>

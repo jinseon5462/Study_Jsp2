@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>자유게시판</title>
-<link rel="stylesheet" href="css/free.css?v1.62">
+<link rel="stylesheet" href="css/free.css?v1.63">
 <script src="jquery/jquery-3.3.1.min.js"></script>
 </head>
 <body id="free">
@@ -27,9 +27,9 @@
 				<!-- 데이터 -->
 			</div>
 		</div>
-		<div id="sideboard_wrap">
+		<!-- <div id="sideboard_wrap">
 			sideboard
-		</div>
+		</div> -->
 	</div>
 <%@ include file="footer.jsp" %>
 <script>
@@ -55,8 +55,8 @@
 									+ "<div id='writer'>" + list[i].id + "</div>"
 								+ "</div>"
 								+ "<div class='view_comment'>"
-									+ "<div id='view' title='조회수'>🔎" + list[i].view + "</div>"
-									+ "<div id='comment' title='댓글수'>💬" + list[i].replyList.length + "</div>"
+									+ "<div id='view' title='조회수'>조회수 : " + list[i].view + "</div>"
+									+ "<div id='comment' title='댓글수'>댓글 : " + list[i].replyList.length + "</div>"
 								+ "</div>"
 							+ "</div>"
 						+ "</div>";
@@ -347,7 +347,6 @@
     	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("bno=" + bno);
     }
-	
 	
 	// 게시글 등록 열기
 	$("#write_line_off").on("click", function(e){
